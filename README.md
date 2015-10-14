@@ -1,23 +1,46 @@
 #JavaScript Coding Guidelines
 
+## Index
+1. Encoding
+2. Line Length
+3. Indentation and Whitespaces
+4. Commas
+5. Semicolons
+6. Primitive Literals
+7. Operator Spacing and Blocks
+8. Object Literals
+9. Comments
+10. Variable definition
+11. Objects
+12. Arrays
+13. Strings
+14. Properties
+15. Type Casting & Coercion
 
-###Encoding
+
+
+
+
+#### 1. Encoding
 
 Always use UTF-8 encoding for js files.
 
 
-###Indentation and Whitespace
+#### 2. Line Length
 
-•	in Markup (HTML): Tabs
-•	CSS: Spaces
-•	JS: Spaces
+Each line should be no longer than 80 characters. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters).
 
-4 spaces per soft tab (indentation level)
+(See GitHub: no horizontal scrollbar)
 
-Place 1 space before the leading brace.
+Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 8.Strings ???)
 
 
-Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
+#### 3. Indentation and Whitespaces
+
+* Always use spaces for indentation in Javascript.
+* Use 4 spaces per soft tab (indentation level).
+* Place 1 space before the leading brace.
+* Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
 
 ```javascript
 // bad
@@ -41,7 +64,7 @@ function fight() {
 }
 ```
 
-Set off operators with spaces.
+* Set off operators with spaces.
 
 ```javascript
 // bad
@@ -51,8 +74,7 @@ var x=y+5;
 var x = y + 5;
 ```
 
-
-Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+* Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
 
 ```javascript
 // bad
@@ -91,8 +113,7 @@ var leds = stage.selectAll('.led')
     .call(tron.led);
 ```
 
-Leave a blank line after blocks and before the next statement.
-
+* Leave a blank line after blocks and before the next statement.
 
 ```javascript
 // bad
@@ -130,9 +151,10 @@ return obj;
 ```
 
 
-###Commas
+#### 4. Commas
 
-No leading commas!
+Never use leading commas!
+And don't use additional trailing comma in objects and arrays!
 
 ```javascript
 // bad
@@ -157,6 +179,12 @@ var hero = {
   , superPower: 'strength'
 };
 
+// bad
+var hero = {
+  firstName: 'Bob',
+  lastName: 'Parr',
+};
+
 // good
 var hero = {
   firstName: 'Bob',
@@ -166,38 +194,40 @@ var hero = {
 };
 ```
 
+#### 5. Semicolons
 
-Don't use additional trailing comma in objects and arrays!
+After each statement and add a semicolon!
+
+Yes! Always use semicolons! ???
+
+```javascript
+// bad
+(function() {
+  var name = 'Skywalker'
+  return name
+})()
+
+// good
+(function() {
+  var name = 'Skywalker';
+  return name;
+})();
+```
 
 
 
-###Semicolons
-
-Yes! Always use semicolons!
- 
-###Line Length
-
-Each line should be no longer than 80 characters. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters).
-
-(See GitHub, no horizontal scrollbar)
-
-Strings longer than 80 characters should be written across multiple lines using string concatenation.
-
-
-
-###Primitive Literals
+#### 6. Primitive Literals
 
 Strings should be in single quotes ( like: ’foo’ )
 
 
-###Operator Spacing and Blocks
+#### 7. Operator Spacing and Blocks
 
 Operators with two operands must be preceded and followed by a single space to make
 the expression clear. Operators include assignments and logical operators.
 
 
 Use braces with all multi-line blocks.
-
 
 ```javascript
 // bad
@@ -239,16 +269,16 @@ if (test) {
 
 
 
-###Object Literals
+#### 8. Object Literals
 
 Object literals should have the following format:
-•	The opening brace should be on the same line as the containing statement.
-•	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
-•	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
+*	The opening brace should be on the same line as the containing statement.
+*	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
+*	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
 If the value is a function, it should wrap under the property name (and should have a blank line both before and after the function.)
-•	Additional empty lines may be inserted to group related properties or otherwise
+*	Additional empty lines may be inserted to group related properties or otherwise
 improve readability.
-•	The closing brace should be on a separate line.
+*	The closing brace should be on a separate line.
 
 ```javascript
 // Good
@@ -265,21 +295,18 @@ var object = {
 var myNumbers = [1, 2, 3]
 ```
 
-###Comments
 
-Every function should have a comment!
-Use JsDoc style format.
+#### 9. Comments
+
+Every function should have a comment in JsDoc style format!
 
 Complex code parts should also be commented as inline comment.
 
-(see 1.3341 Line Length definition -> Links to line length)
+(see 2. Line Length)
 
 
 
-
-
-
-###Variable definition
+#### 10. Variable definition
 
 Always define variables on top of a scope.
 
@@ -318,10 +345,7 @@ function() {
 ```
 
 
-
-
 In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
-
 
 Example:
 ```javascript
@@ -345,7 +369,6 @@ var callback = function(e) {...}
 var mouseMoveHandler = function(e) {...}
 ```
 
-
 Name your functions. This is helpful for stack traces.
 
 ```javascript
@@ -359,8 +382,6 @@ var log = function log(msg) {
   console.log(msg);
 };
 ```
-
-
 
 If your file exports a single class, your filename should be exactly the name of the class.
 
@@ -418,7 +439,7 @@ self = this not that! ????
 When saving a reference to this use _this ?????
 
 
-###Objects
+#### 11. Objects
 
 Use the literal syntax for object creation.
 ```javascript
@@ -429,9 +450,10 @@ var item = new Object();
 var item = {};
 ```
 
-
 Don't use reserved words as keys. It won't work in IE8. More info.
 (http://es5.github.io/#x7.6.1)
+
+
 ```javascript
 // bad
 var superman = {
@@ -448,7 +470,7 @@ var superman = {
 
 
 
-###Arrays
+#### 12. Arrays
 
 Use the literal syntax for array creation.
 
@@ -462,8 +484,7 @@ var items = [];
 
 
 
-###Strings
-
+#### 13. Strings
 
 Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
 
@@ -489,7 +510,6 @@ var errorMessage = 'This is a super long error that was thrown because ' +
   'of Batman. When you stop to think about how Batman had anything to do ' +
   'with this, you would get nowhere fast.';
 ```
-
 
 
 When programmatically building up a string, use Array#join instead of string concatenation. 
@@ -539,7 +559,7 @@ function inbox(messages) {
 
 
 
-###Properties
+#### 14. Properties
 
 
 Use dot notation when accessing properties.
@@ -606,7 +626,7 @@ var i;
 
 
 
-###Type Casting & Coercion
+#### 15. Type Casting & Coercion
 
 
 Perform type coercion at the beginning of the statement.
