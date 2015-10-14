@@ -19,6 +19,7 @@ Place 1 space before the leading brace.
 
 Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
 
+```javascript
 // bad
 if(isJedi) {
   fight ();
@@ -38,22 +39,22 @@ function fight () {
 function fight() {
   console.log('Swooosh!');
 }
-
+```
 
 Set off operators with spaces.
 
-
+```javascript
 // bad
 var x=y+5;
 
 // good
 var x = y + 5;
-
+```
 
 
 Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
 
-
+```javascript
 // bad
 $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
@@ -88,12 +89,12 @@ var leds = stage.selectAll('.led')
   .append('svg:g')
     .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
     .call(tron.led);
-
-
-
+```
 
 Leave a blank line after blocks and before the next statement.
 
+
+```javascript
 // bad
 if (foo) {
   return bar;
@@ -126,13 +127,14 @@ var obj = {
 };
 
 return obj;
-
+```
 
 
 ###Commas
 
-Leading commas: Nope.
+No leading commas!
 
+```javascript
 // bad
 var story = [
     once
@@ -162,16 +164,16 @@ var hero = {
   heroName: 'Mr. Incredible',
   superPower: 'strength'
 };
+```
 
 
-
-Additional trailing comma in objects and arrays: Nope.
+Don't use additional trailing comma in objects and arrays!
 
 
 
 ###Semicolons
 
-Yes! Always use semicolons. 
+Yes! Always use semicolons!
  
 ###Line Length
 
@@ -193,12 +195,11 @@ Strings should be in single quotes ( like: ’foo’ )
 Operators with two operands must be preceded and followed by a single space to make
 the expression clear. Operators include assignments and logical operators.
 
+
 Use braces with all multi-line blocks.
 
 
-
-
-
+```javascript
 // bad
 if(name=='') {
   // ...stuff...
@@ -212,11 +213,11 @@ if(name==''){return}
 if (name === ’’) {
   retrun;
 }
-
+```
 
 If you're using multi-line blocks with if and else, put else on the same line as your if block's closing brace.
 
-
+```javascript
 // bad
 if (test) {
   thing1();
@@ -233,7 +234,7 @@ if (test) {
 } else {
   thing3();
 }
-
+```
 
 
 
@@ -249,6 +250,7 @@ If the value is a function, it should wrap under the property name (and should h
 improve readability.
 •	The closing brace should be on a separate line.
 
+```javascript
 // Good
 var object = {
     key1: value1,
@@ -260,8 +262,8 @@ var object = {
 };
 
 
-var keineAhnungWas = [1, 2, 3]
-
+var myNumbers = [1, 2, 3]
+```
 
 ###Comments
 
@@ -281,7 +283,7 @@ Complex code parts should also be commented as inline comment.
 
 Always define variables on top of a scope.
 
-
+```javascript
 // bad
 function() {
   test();
@@ -313,7 +315,7 @@ function() {
 
   return name;
 }
-
+```
 
 
 
@@ -322,12 +324,11 @@ In a variable definition block, the type of a variable should always be predefin
 
 
 Example:
-
+```javascript
 var foo = ‘’,
-       bar = [],
-       fooBar = {};
-
-
+    bar = [],
+    fooBar = {};
+```
 
 
 Avoid single letter names. Be descriptive with your naming.
@@ -336,16 +337,18 @@ Use readable synonyms in place of reserved words.
 
 Write meaningful variable names:
 
+```javascript
 //Bad
-var  callback = function(e) {...}
+var callback = function(e) {...}
 
 //Good
 var mouseMoveHandler = function(e) {...}
-
+```
 
 
 Name your functions. This is helpful for stack traces.
 
+```javascript
 // bad
 var log = function(msg) {
   console.log(msg);
@@ -355,12 +358,13 @@ var log = function(msg) {
 var log = function log(msg) {
   console.log(msg);
 };
-
+```
 
 
 
 If your file exports a single class, your filename should be exactly the name of the class.
 
+```javascript
 // file contents
 class CheckBox {
   // ...
@@ -376,15 +380,16 @@ var CheckBox = require('./check_box');
 
 // good
 var CheckBox = require('./CheckBox');
-
-
+```
 
 
 No numeric beginning of variable names (JS Standard)
- 
+
+ ```javascript
 $ = jQuery object
 _ = private variables
 _$ = private jQuery object
+```
 
 MyKlass = Constructor and class names should start uppercase (PascalCase)
 
@@ -403,11 +408,11 @@ Use a leading underscore _ when naming private properties.
 Should be discussed:
 
 Variables start with type definition prefix like:
-
+ ```javascript
 sFoo = “bar”; (String)
 aBar = [1, 2, 3]; (Array)
 etc.
-
+```
 
 self = this not that! ????
 When saving a reference to this use _this ?????
@@ -416,18 +421,18 @@ When saving a reference to this use _this ?????
 ###Objects
 
 Use the literal syntax for object creation.
-
+```javascript
 // bad
 var item = new Object();
 
 // good
 var item = {};
-
+```
 
 
 Don't use reserved words as keys. It won't work in IE8. More info.
 (http://es5.github.io/#x7.6.1)
-
+```javascript
 // bad
 var superman = {
   default: { clark: 'kent' },
@@ -439,21 +444,21 @@ var superman = {
   defaults: { clark: 'kent' },
   hidden: true
 };
-
+```
 
 
 
 ###Arrays
 
-
 Use the literal syntax for array creation.
 
+```javascript
 // bad
 var items = new Array();
 
 // good
 var items = [];
-
+```
 
 
 
@@ -462,6 +467,7 @@ var items = [];
 
 Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
 
+```javascript
 // bad
 var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
@@ -482,12 +488,13 @@ var errorMessage = [
 var errorMessage = 'This is a super long error that was thrown because ' +
   'of Batman. When you stop to think about how Batman had anything to do ' +
   'with this, you would get nowhere fast.';
-
+```
 
 
 
 When programmatically building up a string, use Array#join instead of string concatenation. 
 
+```javascript
 var items;
 var messages;
 var length;
@@ -528,7 +535,7 @@ function inbox(messages) {
 
   return '<ul>' + items.join('') + '</ul>';
 }
-
+```
 
 
 
@@ -537,6 +544,7 @@ function inbox(messages) {
 
 Use dot notation when accessing properties.
 
+```javascript
 var luke = {
   jedi: true,
   age: 28
@@ -547,12 +555,13 @@ var isJedi = luke['jedi'];
 
 // good
 var isJedi = luke.jedi;
-
+```
 
 
 
 Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
 
+```javascript
 // bad
 var items = getItems(),
     goSportsTeam = true,
@@ -568,20 +577,12 @@ var items = getItems(),
 var items = getItems();
 var goSportsTeam = true;
 var dragonball = 'z';
-
-
-
-
-
-
-
-
-
-
+```
 
 
 Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
+```javascript
 // bad
 var i, len, dragonball,
     items = getItems(),
@@ -600,7 +601,7 @@ var goSportsTeam = true;
 var dragonball;
 var length;
 var i;
-
+```
 
 
 
@@ -608,11 +609,10 @@ var i;
 ###Type Casting & Coercion
 
 
-
 Perform type coercion at the beginning of the statement.
 Strings:
 
-
+```javascript
 //  => this.reviewScore = 9;
 
 // bad
@@ -626,9 +626,12 @@ var totalScore = '' + this.reviewScore + ' total score';
 
 // good
 var totalScore = this.reviewScore + ' total score'; 
+```
+
 
 Use parseInt for Numbers and always with a radix for type casting. 
 
+```javascript
 var inputValue = '4';
 
 // bad
@@ -648,13 +651,12 @@ var val = Number(inputValue);
 
 // good
 var val = parseInt(inputValue, 10);
-
-
-
+```
 
 
 Booleans:
 
+```javascript
 var age = 0;
 
 // bad
@@ -665,7 +667,7 @@ var hasAge = Boolean(age);
 
 // good
 var hasAge = !!age;
-
+```
 
 
 
