@@ -29,7 +29,7 @@ Always use UTF-8 encoding for js files.
 ---
 
 
-#### 2. Line Length
+## Line Length
 
 Each line should be no longer than 80 characters. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters).
 
@@ -41,7 +41,7 @@ Strings longer than 80 characters should be written across multiple lines using 
 ---
 
 
-#### 3. Indentation and Whitespaces
+## Indentation and Whitespaces
 
 * Always use spaces for indentation in Javascript.
 * Use 4 spaces per soft tab (indentation level).
@@ -160,7 +160,7 @@ return obj;
 ---
 
 
-#### 4. Commas
+## Commas
 
 Never use leading commas!
 And don't use additional trailing comma in objects and arrays!
@@ -207,7 +207,7 @@ var hero = {
 ---
 
 
-#### 5. Semicolons
+## Semicolons
 
 After each statement and add a semicolon!
 
@@ -231,7 +231,7 @@ Yes! Always use semicolons! ???
 ---
 
 
-#### 6. Primitive Literals
+## Primitive Literals
 
 Strings should be in single quotes ( like: ’foo’ )
 
@@ -239,7 +239,7 @@ Strings should be in single quotes ( like: ’foo’ )
 ---
 
 
-#### 7. Operator Spacing and Blocks
+## Operator Spacing and Blocks
 
 Operators with two operands must be preceded and followed by a single space to make
 the expression clear. Operators include assignments and logical operators.
@@ -288,7 +288,7 @@ if (test) {
 ---
 
 
-#### 8. Object Literals
+## Object Literals
 
 Object literals should have the following format:
 *	The opening brace should be on the same line as the containing statement.
@@ -318,7 +318,7 @@ var myNumbers = [1, 2, 3]
 ---
 
 
-#### 9. Comments
+## Comments
 
 Every function should have a comment in JsDoc style format!
 
@@ -330,7 +330,7 @@ Complex code parts should also be commented as inline comment.
 ---
 
 
-#### 10. Variable definition
+## Variable definition
 
 Always define variables on top of a scope.
 
@@ -466,7 +466,7 @@ When saving a reference to this use _this ?????
 ---
 
 
-#### 11. Objects
+## Objects
 
 Use the literal syntax for object creation.
 ```javascript
@@ -515,7 +515,7 @@ var items = [];
 ---
 
 
-#### 13. Strings
+## Strings
 
 Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
 
@@ -592,7 +592,7 @@ function inbox(messages) {
 ---
 
 
-#### 14. Properties
+## Properties
 
 
 Use dot notation when accessing properties.
@@ -727,7 +727,7 @@ var hasAge = !!age;
 ---
 
 
-#### 16. Resources
+## Resources
 
 **Learning ES6**
 
@@ -746,12 +746,6 @@ var hasAge = !!age;
     + [ESlint](http://eslint.org/) - [Airbnb Style .eslintrc](https://github.com/airbnb/javascript/blob/master/linters/.eslintrc)
     + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/jshintrc)
     + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
-
-**Other Style Guides**
-
-  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
 
 **Other Styles**
 
@@ -826,12 +820,16 @@ var hasAge = !!age;
 
 #TBD:
 
+ES6 Guidelines???
+
+
+Resources Block???
+
 
 - return this for chaining
 - overwriting prototype object
 - naming functions
 - getter/setter
-- 
 
 
 Performance related guidelines: ???
