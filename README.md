@@ -2,8 +2,8 @@
 
 ## Index
 1. [Encoding](#encoding)
-2. Line Length
-3. Indentation and Whitespaces
+2. [Line Length]
+3. [Indentation and Whitespaces]
 4. Commas
 5. Semicolons
 6. Comments
