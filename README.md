@@ -6,11 +6,11 @@
 3. Indentation and Whitespaces
 4. Commas
 5. Semicolons
-6. Primitive Literals
-7. Operator Spacing and Blocks
-8. Object Literals
-9. Comments
-10. Variable definition
+6. Comments
+7. Variable definition
+8. Primitive Literals
+9. Operator Spacing and Blocks
+10. Object Literals
 11. Objects
 12. Arrays
 13. Strings
@@ -239,85 +239,6 @@ Strings should be in single quotes ( like: ’foo’ )
 ---
 
 
-## Operator Spacing and Blocks
-
-Operators with two operands must be preceded and followed by a single space to make
-the expression clear. Operators include assignments and logical operators.
-
-
-Use braces with all multi-line blocks.
-
-```javascript
-// bad
-if(name=='') {
-  // ...stuff...
-}
-
-// bad
-if(name==''){return}
-
-
-// good
-if (name === ’’) {
-  retrun;
-}
-```
-
-If you're using multi-line blocks with if and else, put else on the same line as your if block's closing brace.
-
-```javascript
-// bad
-if (test) {
-  thing1();
-  thing2();
-}
-else {
-  thing3();
-}
-
-// good
-if (test) {
-  thing1();
-  thing2();
-} else {
-  thing3();
-}
-```
-
-
----
-
-
-## Object Literals
-
-Object literals should have the following format:
-*	The opening brace should be on the same line as the containing statement.
-*	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
-*	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
-If the value is a function, it should wrap under the property name (and should have a blank line both before and after the function.)
-*	Additional empty lines may be inserted to group related properties or otherwise
-improve readability.
-*	The closing brace should be on a separate line.
-
-```javascript
-// Good
-var object = {
-    key1: value1,
-    key2: value2,
-    func: function() {
-        // do something
-    },
-    key3: value3
-};
-
-
-var myNumbers = [1, 2, 3]
-```
-
-
----
-
-
 ## Comments
 
 Every function should have a comment in JsDoc style format!
@@ -461,6 +382,85 @@ etc.
 
 self = this not that! ????
 When saving a reference to this use _this ?????
+
+
+---
+
+
+## Operator Spacing and Blocks
+
+Operators with two operands must be preceded and followed by a single space to make
+the expression clear. Operators include assignments and logical operators.
+
+
+Use braces with all multi-line blocks.
+
+```javascript
+// bad
+if(name=='') {
+  // ...stuff...
+}
+
+// bad
+if(name==''){return}
+
+
+// good
+if (name === ’’) {
+  retrun;
+}
+```
+
+If you're using multi-line blocks with if and else, put else on the same line as your if block's closing brace.
+
+```javascript
+// bad
+if (test) {
+  thing1();
+  thing2();
+}
+else {
+  thing3();
+}
+
+// good
+if (test) {
+  thing1();
+  thing2();
+} else {
+  thing3();
+}
+```
+
+
+---
+
+
+## Object Literals
+
+Object literals should have the following format:
+*	The opening brace should be on the same line as the containing statement.
+*	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
+*	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
+If the value is a function, it should wrap under the property name (and should have a blank line both before and after the function.)
+*	Additional empty lines may be inserted to group related properties or otherwise
+improve readability.
+*	The closing brace should be on a separate line.
+
+```javascript
+// Good
+var object = {
+    key1: value1,
+    key2: value2,
+    func: function() {
+        // do something
+    },
+    key3: value3
+};
+
+
+var myNumbers = [1, 2, 3]
+```
 
 
 ---
