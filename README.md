@@ -51,22 +51,22 @@ Strings longer than 80 characters should be written across multiple lines using 
 ```javascript
 // bad
 if(isJedi){
-  fight ();
+∙∙fight∙();
 }
 
 // good
-if (isJedi) {
-  fight();
+if∙(isJedi)∙{
+∙∙∙∙fight();
 }
 
 // bad
-function fight () {
-  console.log ('Swooosh!');
+function∙fight∙()∙{
+∙∙console.log∙('Swooosh!');
 }
 
 // good
-function fight() {
-  console.log('Swooosh!');
+function∙fight()∙{
+∙∙∙∙console.log('Swooosh!');
 }
 ```
 
