@@ -2,20 +2,20 @@
 
 ## Index
 1. [Encoding](#encoding)
-2. [Line Length](#line_length)
-3. [Indentation and Whitespaces](#indentation_and_whitespaces)
-4. Commas
-5. Semicolons
-6. Comments
-7. Variable definition
-8. Primitive Literals
-9. Operator Spacing and Blocks
-10. Object Literals
-11. Objects
-12. Arrays
-13. Strings
-14. Properties
-15. Type Casting & Coercion
+2. [Line Length](#line-length)
+3. [Indentation and Whitespaces](#indentation-and-whitespaces)
+4. [Commas](#commas)
+5. [Semicolons](#semicolons)
+6. [Comments](#comments)
+7. [Variable definition](#variable-definition)
+8. [Primitive Literals](#primitive-literals)
+9. [Operator Spacing and Blocks](#operator-spacing-and-blocks)
+10. [Object Literals](#object-literals)
+11. [Objects](#objects)
+12. [Arrays](#arrays)
+13. [Strings](#strings)
+14. [Properties](#properties)
+15. [Type Casting and Coercion](#type-casting-and-coercion]
 
 
 ***
@@ -660,7 +660,7 @@ var i;
 ---
 
 
-#### 15. Type Casting & Coercion
+#### 15. Type Casting and Coercion
 
 
 Perform type coercion at the beginning of the statement.
