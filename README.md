@@ -1,7 +1,7 @@
 #JavaScript Coding Guidelines
 
 ## Index
-1. Encoding
+1. [Encoding](#encoding)
 2. Line Length
 3. Indentation and Whitespaces
 4. Commas
@@ -18,12 +18,15 @@
 15. Type Casting & Coercion
 
 
+***
 
 
-
-#### 1. Encoding
+<a name="encoding"></a>#### 1. Encoding
 
 Always use UTF-8 encoding for js files.
+
+
+---
 
 
 #### 2. Line Length
@@ -33,6 +36,9 @@ Each line should be no longer than 80 characters. If a line goes longer than 80 
 (See GitHub: no horizontal scrollbar)
 
 Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 8.Strings ???)
+
+
+---
 
 
 #### 3. Indentation and Whitespaces
@@ -149,6 +155,9 @@ var obj = {
 
 return obj;
 ```
+
+
+---
 
 
 #### 4. Commas
