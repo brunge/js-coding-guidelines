@@ -15,7 +15,7 @@
 12. [Arrays](#arrays)
 13. [Strings](#strings)
 14. [Properties](#properties)
-15. [Type Casting and Coercion](#type-casting-and-coercion]
+15. [Type Casting and Coercion](#type-casting-and-coercion)
 
 
 ***
@@ -233,8 +233,25 @@ Yes! Always use semicolons! ???
 
 ## Primitive Literals
 
-Strings should be in single quotes ( like: ’foo’ )
+Primitives are:
 
+* string
+* number
+* boolean
+* null
+* undefined
+
+When you access a primitive type you work directly on its value.
+
+Strings should be in single quotes.
+
+```javascript
+//bad
+var message = "hello";
+
+//good
+var message = 'hello';
+```
 
 ---
 
