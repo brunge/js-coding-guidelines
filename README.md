@@ -23,7 +23,7 @@
 
 ## Encoding
 
-Always use UTF-8 encoding for js files.
+Always use UTF-8 encoding for .js files.
 
 
 ---
@@ -31,11 +31,11 @@ Always use UTF-8 encoding for js files.
 
 ## Line Length
 
-Each line should be no longer than 80 characters. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters).
+Each line should be **no longer than 80 characters**. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters/spaces).
 
 (See GitHub: no horizontal scrollbar)
 
-Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 8.Strings ???)
+Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 13. [Strings](#strings))
 
 
 ---
@@ -43,14 +43,14 @@ Strings longer than 80 characters should be written across multiple lines using 
 
 ## Indentation and Whitespaces
 
-* Always use spaces for indentation in Javascript.
-* Use 4 spaces per soft tab (indentation level).
+* Always use **spaces** for indentation in Javascript.
+* Use **4 spaces per soft tab** (indentation level).
 * Place 1 space before the leading brace.
 * Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
 
 ```javascript
 // bad
-if(isJedi) {
+if(isJedi){
   fight ();
 }
 
@@ -135,6 +135,7 @@ if (foo) {
 
 return baz;
 
+
 // bad
 var obj = {
   foo: function() {
@@ -162,8 +163,8 @@ return obj;
 
 ## Commas
 
-Never use leading commas!
-And don't use additional trailing comma in objects and arrays!
+* Never use leading commas!
+* Also don't add additional trailing comma in objects and arrays!
 
 ```javascript
 // bad
@@ -209,7 +210,7 @@ var hero = {
 
 ## Semicolons
 
-After each statement and add a semicolon!
+After each statement add a semicolon! ??
 
 Yes! Always use semicolons! ???
 
@@ -262,7 +263,7 @@ Every function should have a comment in JsDoc style format!
 
 Complex code parts should also be commented as inline comment.
 
-(see 2. Line Length)
+(see 2. [Line Length](#line-length))
 
 
 ---
