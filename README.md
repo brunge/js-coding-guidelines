@@ -16,7 +16,7 @@
 13. [Strings](#strings)
 14. [Properties](#properties)
 15. [Type Casting and Coercion](#type-casting-and-coercion)
-16. [Accessability](#accessability) - Aria
+16. [Accessability and Aria](#accessability-and-aria)
 
 
 ***
@@ -745,7 +745,7 @@ var hasAge = !!age;
 
 ---
 
-## Accessability - Aria
+## Accessability and Aria
 
 ...
 
