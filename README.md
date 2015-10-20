@@ -89,19 +89,19 @@ $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
 // bad
 $('#items').
-  find('.selected').
-    highlight().
-    end().
-  find('.open').
-    updateCount();
+    find('.selected').
+        highlight().
+        end().
+    find('.open').
+        updateCount();
 
 // good
 $('#items')
-  .find('.selected')
-    .highlight()
-  .end()
-  .find('.open')
-    .updateCount();
+    .find('.selected')
+        .highlight()
+    .end()
+    .find('.open')
+        .updateCount();
 
 // bad
 var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
@@ -111,13 +111,13 @@ var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed(
 
 // good
 var leds = stage.selectAll('.led')
-    .data(data)
-  .enter().append('svg:svg')
-    .classed('led', true)
-    .attr('width', (radius + margin) * 2)
-  .append('svg:g')
-    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-    .call(tron.led);
+        .data(data)
+    .enter().append('svg:svg')
+        .classed('led', true)
+        .attr('width', (radius + margin) * 2)
+    .append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
 ```
 
 * Leave a blank line after blocks and before the next statement.
@@ -125,13 +125,13 @@ var leds = stage.selectAll('.led')
 ```javascript
 // bad
 if (foo) {
-  return bar;
+    return bar;
 }
 return baz;
 
 // good
 if (foo) {
-  return bar;
+    return bar;
 }
 
 return baz;
@@ -139,20 +139,20 @@ return baz;
 
 // bad
 var obj = {
-  foo: function() {
-  },
-  bar: function() {
-  }
+    foo: function() {
+    },
+    bar: function() {
+    }
 };
 return obj;
 
 // good
 var obj = {
-  foo: function() {
-  },
+    foo: function() {
+    },
 
-  bar: function() {
-  }
+    bar: function() {
+    }
 };
 
 return obj;
@@ -177,9 +177,9 @@ var story = [
 
 // good
 var story = [
-  once,
-  upon,
-  aTime
+    once,
+    upon,
+    aTime
 ];
 
 // bad
@@ -192,16 +192,16 @@ var hero = {
 
 // bad
 var hero = {
-  firstName: 'Bob',
-  lastName: 'Parr',
+    firstName: 'Bob',
+    lastName: 'Parr',
 };
 
 // good
 var hero = {
-  firstName: 'Bob',
-  lastName: 'Parr',
-  heroName: 'Mr. Incredible',
-  superPower: 'strength'
+    firstName: 'Bob',
+    lastName: 'Parr',
+    heroName: 'Mr. Incredible',
+    superPower: 'strength'
 };
 ```
 
@@ -218,14 +218,14 @@ Yes! Always use semicolons! ???
 ```javascript
 // bad
 (function() {
-  var name = 'Skywalker'
-  return name
+    var name = 'Skywalker'
+    return name
 })()
 
 // good
 (function() {
-  var name = 'Skywalker';
-  return name;
+    var name = 'Skywalker';
+    return name;
 })();
 ```
 
@@ -277,34 +277,34 @@ Always define variables on top of a scope.
 ```javascript
 // bad
 function() {
-  test();
-  console.log('doing stuff..');
+    test();
+    console.log('doing stuff..');
 
-  //..other stuff..
+    //..other stuff..
 
-  var name = getName();
+    var name = getName();
 
-  if (name === 'test') {
-    return false;
-  }
+    if (name === 'test') {
+        return false;
+    }
 
-  return name;
+    return name;
 }
 
 // good
 function() {
-  var name = getName();
+    var name = getName();
 
-  test();
-  console.log('doing stuff..');
+    test();
+    console.log('doing stuff..');
 
-  //..other stuff..
+    //..other stuff..
 
-  if (name === 'test') {
-    return false;
-  }
+    if (name === 'test') {
+        return false;
+    }
 
-  return name;
+    return name;
 }
 ```
 
@@ -338,12 +338,12 @@ Name your functions. This is helpful for stack traces. #TBD
 ```javascript
 // bad
 var log = function(msg) {
-  console.log(msg);
+    console.log(msg);
 };
 
 // good
 var log = function log(msg) {
-  console.log(msg);
+    console.log(msg);
 };
 ```
 
@@ -352,7 +352,7 @@ If your file exports a single class, your filename should be exactly the name of
 ```javascript
 // file contents
 class CheckBox {
-  // ...
+    // ...
 }
 module.exports = CheckBox;
 
@@ -417,7 +417,7 @@ Use braces with all multi-line blocks.
 ```javascript
 // bad
 if(name=='') {
-  // ...stuff...
+    // ...stuff...
 }
 
 // bad
@@ -426,7 +426,7 @@ if(name==''){return}
 
 // good
 if (name === ’’) {
-  retrun;
+    retrun;
 }
 ```
 
@@ -435,19 +435,19 @@ If you're using multi-line blocks with if and else, put else on the same line as
 ```javascript
 // bad
 if (test) {
-  thing1();
-  thing2();
+    thing1();
+    thing2();
 }
 else {
-  thing3();
+    thing3();
 }
 
 // good
 if (test) {
-  thing1();
-  thing2();
+    thing1();
+    thing2();
 } else {
-  thing3();
+    thing3();
 }
 ```
 
@@ -503,14 +503,14 @@ Don't use reserved words as keys. It won't work in IE8. More info.
 ```javascript
 // bad
 var superman = {
-  default: { clark: 'kent' },
-  private: true
+    default: { clark: 'kent' },
+    private: true
 };
 
 // good
 var superman = {
-  defaults: { clark: 'kent' },
-  hidden: true
+    defaults: { clark: 'kent' },
+    hidden: true
 };
 ```
 
@@ -550,15 +550,15 @@ fast.';
 
 //bad – but good practice if you don’t use uglify
 var errorMessage = [
-  'This is a super long error that was thrown because ',
-  'of Batman. When you stop to think about how Batman had anything to do ',
-  'with this, you would get nowhere fast.'
+    'This is a super long error that was thrown because ',
+    'of Batman. When you stop to think about how Batman had anything to do ',
+    'with this, you would get nowhere fast.'
 ].join(‘’);
 
 // good
 var errorMessage = 'This is a super long error that was thrown because ' +
-  'of Batman. When you stop to think about how Batman had anything to do ' +
-  'with this, you would get nowhere fast.';
+    'of Batman. When you stop to think about how Batman had anything to do ' +
+    'with this, you would get nowhere fast.';
 ```
 
 
@@ -571,39 +571,39 @@ var length;
 var i;
 
 messages = [{
-  state: 'success',
-  message: 'This one worked.'
+    state: 'success',
+    message: 'This one worked.'
 }, {
-  state: 'success',
-  message: 'This one worked as well.'
+    state: 'success',
+    message: 'This one worked as well.'
 }, {
-  state: 'error',
-  message: 'This one did not work.'
+    state: 'error',
+    message: 'This one did not work.'
 }];
 
 length = messages.length;
 
 // bad
 function inbox(messages) {
-  items = '<ul>';
+    items = '<ul>';
 
-  for (i = 0; i < length; i++) {
-    items += '<li>' + messages[i].message + '</li>';
-  }
+    for (i = 0; i < length; i++) {
+        items += '<li>' + messages[i].message + '</li>';
+    }
 
-  return items + '</ul>';
+    return items + '</ul>';
 }
 
 // good
 function inbox(messages) {
-  items = [];
+    items = [];
 
-  for (i = 0; i < length; i++) {
-    // use direct assignment in this case because we're micro-optimizing.
-    items[i] = '<li>' + messages[i].message + '</li>';
-  }
+    for (i = 0; i < length; i++) {
+        // use direct assignment in this case because we're micro-optimizing.
+        items[i] = '<li>' + messages[i].message + '</li>';
+    }
 
-  return '<ul>' + items.join('') + '</ul>';
+    return '<ul>' + items.join('') + '</ul>';
 }
 ```
 
@@ -618,8 +618,8 @@ Use dot notation when accessing properties.
 
 ```javascript
 var luke = {
-  jedi: true,
-  age: 28
+    jedi: true,
+    age: 28
 };
 
 // bad
@@ -865,21 +865,21 @@ Use shortcuts????
 ```javascript
 // bad
 if (name !== '') {
-  // ...stuff...
+    // ...stuff...
 }
 
 // good
 if (name) {
-  // ...stuff...
+    // ...stuff...
 }
 
 // bad
 if (collection.length > 0) {
-  // ...stuff...
+    // ...stuff...
 }
 
 // good
 if (collection.length) {
-  // ...stuff...
+    // ...stuff...
 }
 ```
