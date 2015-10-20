@@ -16,7 +16,7 @@
 13. [Strings](#strings)
 14. [Properties](#properties)
 15. [Type Casting and Coercion](#type-casting-and-coercion)
-16. [Accessability - Aria](#accessability-aria)
+16. [Accessability](#accessability) - Aria
 
 
 ***
