@@ -478,7 +478,7 @@ var object = {
 };
 
 
-var myNumbers = [1, 2, 3]
+var myNumbers = [1, 2, 3];
 ```
 
 
@@ -503,13 +503,17 @@ Don't use reserved words as keys. It won't work in IE8. More info.
 ```javascript
 // bad
 var superman = {
-    default: { clark: 'kent' },
+    default: {
+        clark: 'kent'
+    },
     private: true
 };
 
 // good
 var superman = {
-    defaults: { clark: 'kent' },
+    defaults: {
+        clark: 'kent'
+    },
     hidden: true
 };
 ```
