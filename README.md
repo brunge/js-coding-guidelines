@@ -1,9 +1,9 @@
 #JavaScript Coding Guidelines
 
-Allgmeines (inkl. Accessability?)
-ES6
-ES5
-Performance
+* Allgmeines (inkl. Accessability?)
+* ES6
+* ES5
+* Performance
 
 
 
