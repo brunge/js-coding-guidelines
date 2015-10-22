@@ -1,5 +1,12 @@
 #JavaScript Coding Guidelines
 
+Allgmeines (inkl. Accessability?)
+ES6
+ES5
+Performance
+
+
+
 ## Index
 1. [Encoding](#encoding)
 2. [Line Length](#line-length)
