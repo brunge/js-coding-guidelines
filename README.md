@@ -6,7 +6,7 @@ First you will get a general overview about how to "style" the code followed by 
 
 * Encoding
 * Line Length
-* Indentation
+* Indentation & White-space
 * Comments
 * Commas & Semicolons
 * Primitive Literals
@@ -42,6 +42,337 @@ First you will get a general overview about how to "style" the code followed by 
 * ES5
 * Performance
 ***
+
+
+# General
+
+## Encoding
+
+Always use UTF-8 encoding for .js files.
+
+
+---
+
+
+## Line Length
+
+Each line should be **no longer than 80 characters**. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters/spaces).
+
+(See GitHub: no horizontal scrollbar)
+
+Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 13. [Strings](#strings))
+
+
+---
+
+
+## Indentation and Whitespaces
+
+* Always use **spaces** for indentation in Javascript.
+* Use **4 spaces per soft tab** (indentation level).
+* Place 1 space before the leading brace.
+* Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
+
+```javascript
+// bad
+if(isJedi){
+∙∙fight∙();
+}
+
+// bad
+if∙(isJedi)∙{∙∙∙
+∙∙∙∙fight();∙∙
+}∙∙∙∙∙
+
+// good
+if∙(isJedi)∙{
+∙∙∙∙fight();
+}
+
+// bad
+function∙fight∙()∙{
+∙∙console.log∙('Swooosh!');
+}
+
+// good
+function∙fight()∙{
+∙∙∙∙console.log('Swooosh!');
+}
+```
+
+* Set off operators with spaces.
+
+```javascript
+// bad
+var x=y+5;
+
+// good
+var x = y + 5;
+```
+
+* Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+
+```javascript
+// bad
+$('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+// bad
+$('#items').
+    find('.selected').
+        highlight().
+        end().
+    find('.open').
+        updateCount();
+
+// good
+$('#items')
+    .find('.selected')
+        .highlight()
+    .end()
+    .find('.open')
+        .updateCount();
+```
+
+* Leave a blank line after blocks and before the next statement.
+
+```javascript
+// bad
+if (foo) {
+    return bar;
+}
+return baz;
+
+// good
+if (foo) {
+    return bar;
+}
+
+return baz;
+
+
+// bad
+var obj = {
+    foo: function() {
+    },
+    bar: function() {
+    }
+};
+return obj;
+
+// good
+var obj = {
+    foo: function() {
+    },
+
+    bar: function() {
+    }
+};
+
+return obj;
+```
+
+
+---
+
+
+## Comments
+
+Every function should have a comment in JsDoc style format!
+
+Complex code parts should also be commented as inline comment.
+
+(see 2. [Line Length](#line-length))
+
+
+```javascript
+/**
+* [doCrazyStuff description]
+* @param  {[type]} name  [description]
+* @param  {[type]} value [description] 
+* @return {[type]}       [description]
+*/
+function doCrazyStuff(name, value) {
+    // do stuff
+}
+```
+
+
+---
+
+
+## Commas & Semicolons
+
+* Never use leading commas!
+* Also don't add additional trailing commas in objects and arrays!
+
+```javascript
+// bad
+var story = [
+    once
+  , upon
+  , aTime
+];
+
+// good
+var story = [
+    once,
+    upon,
+    aTime
+];
+
+// bad
+var hero = {
+    firstName: 'Bob'
+  , lastName: 'Parr'
+  , heroName: 'Mr. Incredible'
+  , superPower: 'strength'
+};
+
+// bad
+var hero = {
+    firstName: 'Bob',
+    lastName: 'Parr',
+};
+
+// good
+var hero = {
+    firstName: 'Bob',
+    lastName: 'Parr',
+    heroName: 'Mr. Incredible',
+    superPower: 'strength'
+};
+```
+
+Add semicolons after each statement!
+
+
+```javascript
+// bad
+(function() {
+    var name = 'Skywalker'
+    return name
+})()
+
+// good
+(function() {
+    var name = 'Skywalker';
+    return name;
+})();
+```
+
+
+---
+
+
+## Primitive Literals
+
+Primitives are:
+
+* string
+* number
+* boolean
+* null
+* undefined
+
+
+Strings should be defined in single quotes.
+
+```javascript
+//bad
+var message = "hello";
+
+//good
+var message = 'hello';
+```
+
+
+---
+
+
+## Accessability (ARIA)
+
+***
+
+# ES6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***
+
+***
+
+***
+
+
+
 
 
 
