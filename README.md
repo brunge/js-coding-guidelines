@@ -5,6 +5,7 @@ First you will get a general overview about how to "style" the code followed by 
 ## General
 
 * Encoding
+* Javascript Modus
 * Line Length
 * Indentation & White-space
 * Comments
@@ -49,6 +50,22 @@ First you will get a general overview about how to "style" the code followed by 
 ## Encoding
 
 Always use UTF-8 encoding for .js files.
+
+
+---
+
+
+## Javascript Modus
+
+ES5 and ES6 are triggered by writing:
+
+```javascript
+//bad + error
+"use strict"
+
+//good
+'use strict';
+```
 
 
 ---
