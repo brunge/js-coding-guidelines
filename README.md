@@ -312,11 +312,16 @@ var message = 'hello';
 
 ## Accessability (ARIA)
 
+
+
 ***
 
 # ES6
 
 
+## Variable definition
+
+Always define variables on top of a scope.
 
 
 
