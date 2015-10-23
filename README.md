@@ -1,9 +1,47 @@
 #JavaScript Coding Guidelines
 
+First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines. We also have a ES5 section and a short overview about how to write performance efficient Javascript.
+
+## General
+
+* Encoding
+* Line Length
+* Indentation
+* Comments
+* Commas & Semicolons
+* Primitive Literals
+* Accessability (ARIA)
+
+## ES6
+* Variable definition
+* Operator Spacing and Blocks
+* Object Literals
+* Objects
+* Arrays
+* Strings
+* Properties
+* Type Casting
+
+## ES5
+* Variable definition
+* Operator Spacing and Blocks
+* Object Literals
+* Objects
+* Arrays
+* Strings
+* Properties
+* Type Casting
+
+## Performance Efficient Javascript
+* ???
+
+
+***
 * Allgmeines (inkl. Accessability?)
 * ES6
 * ES5
 * Performance
+***
 
 
 
