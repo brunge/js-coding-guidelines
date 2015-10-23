@@ -192,7 +192,11 @@ Complex code parts should also be commented as inline comment.
 * @return {[type]}       [description]
 */
 function doCrazyStuff(name, value) {
-    // do stuff
+    
+    // complex codepart description
+    while(....) {
+        // super crazy stuff
+    };
 }
 ```
 
