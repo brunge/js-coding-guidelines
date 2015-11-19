@@ -187,7 +187,37 @@ var obj = {
 
 return obj;
 ```
+* Do not pad your blocks with blank lines.
 
+```javascript
+// bad
+function bar() {
+
+  console.log(foo);
+
+}
+
+// also bad
+if (baz) {
+
+  console.log(qux);
+} else {
+  console.log(foo);
+
+}
+
+// good
+function bar() {
+  console.log(foo);
+}
+
+// good
+if (baz) {
+  console.log(qux);
+} else {
+  console.log(foo);
+}
+```
 
 ---
 
@@ -196,9 +226,7 @@ return obj;
 
 Every function should have a comment in JsDoc style format!
 
-Complex code parts should also be commented as inline comment.
-
-(see 2. [Line Length](#line-length))
+Complex code parts should also be commented as inline comment. (see 2. [Line Length](#line-length))
 
 
 ```javascript
@@ -216,6 +244,8 @@ function doCrazyStuff(name, value) {
     };
 }
 ```
+
+Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are FIXME -- need to figure this out or TODO -- need to implement.
 
 
 ---
@@ -285,7 +315,21 @@ Add semicolons after each statement!
 ---
 
 
-## Primitive Literals
+## Variables
+
+* Always define variables on top of a scope.
+
+* Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
+
+* In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
+
+* Avoid single letter names. Be descriptive with your naming.
+
+* Use readable synonyms in place of reserved words.
+
+
+
+### Primitive Literals
 
 Primitives are:
 
@@ -306,12 +350,309 @@ var message = "hello";
 var message = 'hello';
 ```
 
+---
+
+## Comparison Operators & Equality
+
+Use `===` and `!==` over `==` and `!=`.
+
+---
+
+## Blocks
+
+* Use braces with all multi-line blocks.
+
+```javascript
+// bad
+if (test)
+  return false;
+
+// good
+if (test) {
+  return false;
+}
+```
+*  If you're using multi-line blocks with if and else, put else on the same line as your if block's closing brace.
+
+```javascript
+// bad
+if (test) {
+  thing1();
+}
+else {
+  thing2();
+}
+
+// good
+if (test) {
+  thing1();
+} else {
+  thing2();
+}
+```
+
+---
+
+## Type Casting and Coercion
+
+
+Perform type coercion at the beginning of the statement.
+Strings:
+
+```javascript
+//  => this.reviewScore = 9;
+
+// bad
+var totalScore = this.reviewScore + '';
+
+// good
+var totalScore = '' + this.reviewScore;
+
+// bad
+var totalScore = '' + this.reviewScore + ' total score';
+
+// good
+var totalScore = this.reviewScore + ' total score'; 
+```
+
+
+Use parseInt for Numbers and always with a radix for type casting. 
+
+```javascript
+var inputValue = '4';
+
+// bad
+var val = new Number(inputValue);
+
+// bad
+var val = +inputValue;
+
+// bad
+var val = inputValue >> 0;
+
+// bad
+var val = parseInt(inputValue);
+
+// good
+var val = Number(inputValue);
+
+// good
+var val = parseInt(inputValue, 10);
+```
+
+
+Booleans:
+
+```javascript
+var age = 0;
+
+// bad
+var hasAge = new Boolean(age);
+
+// good
+var hasAge = Boolean(age);
+
+// good
+var hasAge = !!age;
+```
+
+---
+
+## Strings
+
+Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
+
+```javascript
+// bad
+var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+// bad
+var errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+//bad – but good practice if you don’t use uglify
+var errorMessage = [
+    'This is a super long error that was thrown because ',
+    'of Batman. When you stop to think about how Batman had anything to do ',
+    'with this, you would get nowhere fast.'
+].join(‘’);
+
+// good
+var errorMessage = 'This is a super long error that was thrown because ' +
+    'of Batman. When you stop to think about how Batman had anything to do ' +
+    'with this, you would get nowhere fast.';
+```
+
+
+When programmatically building up a string, use Array#join instead of string concatenation. 
+
+```javascript
+var items;
+var messages;
+var length;
+var i;
+
+messages = [{
+    state: 'success',
+    message: 'This one worked.'
+}, {
+    state: 'success',
+    message: 'This one worked as well.'
+}, {
+    state: 'error',
+    message: 'This one did not work.'
+}];
+
+length = messages.length;
+
+// bad
+function inbox(messages) {
+    items = '<ul>';
+
+    for (i = 0; i < length; i++) {
+        items += '<li>' + messages[i].message + '</li>';
+    }
+
+    return items + '</ul>';
+}
+
+// good
+function inbox(messages) {
+    items = [];
+
+    for (i = 0; i < length; i++) {
+        // use direct assignment in this case because we're micro-optimizing.
+        items[i] = '<li>' + messages[i].message + '</li>';
+    }
+
+    return '<ul>' + items.join('') + '</ul>';
+}
+```
+
+---
+
+## Objects
+
+* Use the literal syntax for object creation.
+
+```javascript
+// bad
+var item = new Object();
+
+// good
+var item = {};
+```
+
+* Don't use reserved words as keys. It won't work in IE8. (More info: http://es5.github.io/#x7.6.1)
+
+
+```javascript
+// bad
+var superman = {
+    default: {
+        clark: 'kent'
+    },
+    private: true
+};
+
+// good
+var superman = {
+    defaults: {
+        clark: 'kent'
+    },
+    hidden: true
+};
+```
+
 
 ---
 
 
-## Accessability (ARIA)
+## Arrays
 
+Use the literal syntax for array creation.
+
+```javascript
+// bad
+var items = new Array();
+
+// good
+var items = [];
+```
+
+---
+
+
+## Properties
+
+
+Use dot notation when accessing properties.
+
+```javascript
+var luke = {
+    jedi: true,
+    age: 28
+};
+
+// bad
+var isJedi = luke['jedi'];
+
+// good
+var isJedi = luke.jedi;
+```
+
+
+
+Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
+
+```javascript
+// bad
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
+
+// bad
+// (compare to above, and try to spot the mistake)
+var items = getItems(),
+    goSportsTeam = true;
+    dragonball = 'z';
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball = 'z';
+```
+
+
+Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+```javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i;
+var items = getItems();
+var dragonball;
+var goSportsTeam = true;
+var len;
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball;
+var length;
+var i;
+```
+
+
+---
+
+<!--## Accessability (ARIA)-->
 
 
 ***
@@ -319,12 +660,32 @@ var message = 'hello';
 # ES6
 
 
-## Variable definition
+## Variables
 
-Always define variables on top of a scope.
+* Group all your consts and then group all your lets.
 
+Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
+```javascript
+// bad
+let i, len, dragonball,
+	 items = getItems(),
+	 goSportsTeam = true;
 
+// bad
+let i;
+const items = getItems();
+let dragonball;
+const goSportsTeam = true;
+let len;
+
+// good
+const goSportsTeam = true;
+const items = getItems();
+let dragonball;
+let i;
+let length;
+```
 
 
 
@@ -423,253 +784,6 @@ Always define variables on top of a scope.
 
 ***
 
-
-## Encoding
-
-Always use UTF-8 encoding for .js files.
-
-
----
-
-
-## Line Length
-
-Each line should be **no longer than 80 characters**. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters/spaces).
-
-(See GitHub: no horizontal scrollbar)
-
-Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 13. [Strings](#strings))
-
-
----
-
-
-## Indentation and Whitespaces
-
-* Always use **spaces** for indentation in Javascript.
-* Use **4 spaces per soft tab** (indentation level).
-* Place 1 space before the leading brace.
-* Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
-
-```javascript
-// bad
-if(isJedi){
-∙∙fight∙();
-}
-
-// good
-if∙(isJedi)∙{
-∙∙∙∙fight();
-}
-
-// bad
-function∙fight∙()∙{
-∙∙console.log∙('Swooosh!');
-}
-
-// good
-function∙fight()∙{
-∙∙∙∙console.log('Swooosh!');
-}
-```
-
-* Set off operators with spaces.
-
-```javascript
-// bad
-var x=y+5;
-
-// good
-var x = y + 5;
-```
-
-* Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
-
-```javascript
-// bad
-$('#items').find('.selected').highlight().end().find('.open').updateCount();
-
-// bad
-$('#items').
-    find('.selected').
-        highlight().
-        end().
-    find('.open').
-        updateCount();
-
-// good
-$('#items')
-    .find('.selected')
-        .highlight()
-    .end()
-    .find('.open')
-        .updateCount();
-
-// bad
-var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
-    .attr('width', (radius + margin) * 2).append('svg:g')
-    .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-    .call(tron.led);
-
-// good
-var leds = stage.selectAll('.led')
-        .data(data)
-    .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-    .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
-```
-
-* Leave a blank line after blocks and before the next statement.
-
-```javascript
-// bad
-if (foo) {
-    return bar;
-}
-return baz;
-
-// good
-if (foo) {
-    return bar;
-}
-
-return baz;
-
-
-// bad
-var obj = {
-    foo: function() {
-    },
-    bar: function() {
-    }
-};
-return obj;
-
-// good
-var obj = {
-    foo: function() {
-    },
-
-    bar: function() {
-    }
-};
-
-return obj;
-```
-
-
----
-
-
-## Commas
-
-* Never use leading commas!
-* Also don't add additional trailing comma in objects and arrays!
-
-```javascript
-// bad
-var story = [
-    once
-  , upon
-  , aTime
-];
-
-// good
-var story = [
-    once,
-    upon,
-    aTime
-];
-
-// bad
-var hero = {
-    firstName: 'Bob'
-  , lastName: 'Parr'
-  , heroName: 'Mr. Incredible'
-  , superPower: 'strength'
-};
-
-// bad
-var hero = {
-    firstName: 'Bob',
-    lastName: 'Parr',
-};
-
-// good
-var hero = {
-    firstName: 'Bob',
-    lastName: 'Parr',
-    heroName: 'Mr. Incredible',
-    superPower: 'strength'
-};
-```
-
-
----
-
-
-## Semicolons
-
-After each statement add a semicolon! ??
-
-Yes! Always use semicolons! ???
-
-```javascript
-// bad
-(function() {
-    var name = 'Skywalker'
-    return name
-})()
-
-// good
-(function() {
-    var name = 'Skywalker';
-    return name;
-})();
-```
-
-
----
-
-
-## Primitive Literals
-
-Primitives are:
-
-* string
-* number
-* boolean
-* null
-* undefined
-
-When you access a primitive type you work directly on its value.
-
-Strings should be in single quotes.
-
-```javascript
-//bad
-var message = "hello";
-
-//good
-var message = 'hello';
-```
-
----
-
-
-## Comments
-
-Every function should have a comment in JsDoc style format!
-
-Complex code parts should also be commented as inline comment.
-
-(see 2. [Line Length](#line-length))
-
-
----
 
 
 ## Variable definition
@@ -857,6 +971,7 @@ if (test) {
 ---
 
 
+
 ## Object Literals
 
 Object literals should have the following format:
@@ -887,266 +1002,10 @@ var myNumbers = [1, 2, 3];
 ---
 
 
-## Objects
 
-Use the literal syntax for object creation.
-```javascript
-// bad
-var item = new Object();
 
-// good
-var item = {};
-```
 
-Don't use reserved words as keys. It won't work in IE8. More info.
-(http://es5.github.io/#x7.6.1)
 
-
-```javascript
-// bad
-var superman = {
-    default: {
-        clark: 'kent'
-    },
-    private: true
-};
-
-// good
-var superman = {
-    defaults: {
-        clark: 'kent'
-    },
-    hidden: true
-};
-```
-
-
----
-
-
-#### 12. Arrays
-
-Use the literal syntax for array creation.
-
-```javascript
-// bad
-var items = new Array();
-
-// good
-var items = [];
-```
-
-
----
-
-
-## Strings
-
-Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
-
-```javascript
-// bad
-var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-
-// bad
-var errorMessage = 'This is a super long error that was thrown because \
-of Batman. When you stop to think about how Batman had anything to do \
-with this, you would get nowhere \
-fast.';
-
-//bad – but good practice if you don’t use uglify
-var errorMessage = [
-    'This is a super long error that was thrown because ',
-    'of Batman. When you stop to think about how Batman had anything to do ',
-    'with this, you would get nowhere fast.'
-].join(‘’);
-
-// good
-var errorMessage = 'This is a super long error that was thrown because ' +
-    'of Batman. When you stop to think about how Batman had anything to do ' +
-    'with this, you would get nowhere fast.';
-```
-
-
-When programmatically building up a string, use Array#join instead of string concatenation. 
-
-```javascript
-var items;
-var messages;
-var length;
-var i;
-
-messages = [{
-    state: 'success',
-    message: 'This one worked.'
-}, {
-    state: 'success',
-    message: 'This one worked as well.'
-}, {
-    state: 'error',
-    message: 'This one did not work.'
-}];
-
-length = messages.length;
-
-// bad
-function inbox(messages) {
-    items = '<ul>';
-
-    for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
-    }
-
-    return items + '</ul>';
-}
-
-// good
-function inbox(messages) {
-    items = [];
-
-    for (i = 0; i < length; i++) {
-        // use direct assignment in this case because we're micro-optimizing.
-        items[i] = '<li>' + messages[i].message + '</li>';
-    }
-
-    return '<ul>' + items.join('') + '</ul>';
-}
-```
-
-
----
-
-
-## Properties
-
-
-Use dot notation when accessing properties.
-
-```javascript
-var luke = {
-    jedi: true,
-    age: 28
-};
-
-// bad
-var isJedi = luke['jedi'];
-
-// good
-var isJedi = luke.jedi;
-```
-
-
-
-Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
-
-```javascript
-// bad
-var items = getItems(),
-    goSportsTeam = true,
-    dragonball = 'z';
-
-// bad
-// (compare to above, and try to spot the mistake)
-var items = getItems(),
-    goSportsTeam = true;
-    dragonball = 'z';
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball = 'z';
-```
-
-
-Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-```javascript
-// bad
-var i, len, dragonball,
-    items = getItems(),
-    goSportsTeam = true;
-
-// bad
-var i;
-var items = getItems();
-var dragonball;
-var goSportsTeam = true;
-var len;
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball;
-var length;
-var i;
-```
-
-
----
-
-
-#### 15. Type Casting and Coercion
-
-
-Perform type coercion at the beginning of the statement.
-Strings:
-
-```javascript
-//  => this.reviewScore = 9;
-
-// bad
-var totalScore = this.reviewScore + '';
-
-// good
-var totalScore = '' + this.reviewScore;
-
-// bad
-var totalScore = '' + this.reviewScore + ' total score';
-
-// good
-var totalScore = this.reviewScore + ' total score'; 
-```
-
-
-Use parseInt for Numbers and always with a radix for type casting. 
-
-```javascript
-var inputValue = '4';
-
-// bad
-var val = new Number(inputValue);
-
-// bad
-var val = +inputValue;
-
-// bad
-var val = inputValue >> 0;
-
-// bad
-var val = parseInt(inputValue);
-
-// good
-var val = Number(inputValue);
-
-// good
-var val = parseInt(inputValue, 10);
-```
-
-
-Booleans:
-
-```javascript
-var age = 0;
-
-// bad
-var hasAge = new Boolean(age);
-
-// good
-var hasAge = Boolean(age);
-
-// good
-var hasAge = !!age;
-```
 
 
 ---
