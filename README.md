@@ -2,6 +2,8 @@
 
 First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines. We also have a ES5 section and a short overview about how to write performance efficient Javascript.
 
+**<span style="color:red;">Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.</span>**
+
 ## General
 
 * Encoding
@@ -319,17 +321,65 @@ Add semicolons after each statement!
 
 * Always define variables on top of a scope.
 
+```javascript
+// bad
+function() {
+    test();
+    console.log('doing stuff..');
+
+    //..other stuff..
+
+    var name = getName();
+
+    if (name === 'test') {
+        return false;
+    }
+
+    return name;
+}
+
+// good
+function() {
+    var name = getName();
+
+    test();
+    console.log('doing stuff..');
+
+    //..other stuff..
+
+    if (name === 'test') {
+        return false;
+    }
+
+    return name;
+}
+```
+
 * Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
 
 * In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
 
-* Avoid single letter names. Be descriptive with your naming.
+```javascript
+var foo = ‘’,
+    bar = [],
+    fooBar = {};
+```
+
+* Avoid single letter names. Be descriptive with your naming and write meaningful variable names.
+
+```javascript
+//Bad
+var callback = function(e) {...}
+
+//Good
+var mouseMoveHandler = function(e) {...}
+```
 
 * Use readable synonyms in place of reserved words.
 
 
 
-### Primitive Literals
+#### Primitive Literals
 
 Primitives are:
 
@@ -788,66 +838,8 @@ let length;
 
 ## Variable definition
 
-Always define variables on top of a scope.
-
-```javascript
-// bad
-function() {
-    test();
-    console.log('doing stuff..');
-
-    //..other stuff..
-
-    var name = getName();
-
-    if (name === 'test') {
-        return false;
-    }
-
-    return name;
-}
-
-// good
-function() {
-    var name = getName();
-
-    test();
-    console.log('doing stuff..');
-
-    //..other stuff..
-
-    if (name === 'test') {
-        return false;
-    }
-
-    return name;
-}
-```
 
 
-In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
-
-Example:
-```javascript
-var foo = ‘’,
-    bar = [],
-    fooBar = {};
-```
-
-
-Avoid single letter names. Be descriptive with your naming.
-
-Use readable synonyms in place of reserved words.
-
-Write meaningful variable names:
-
-```javascript
-//Bad
-var callback = function(e) {...}
-
-//Good
-var mouseMoveHandler = function(e) {...}
-```
 
 Name your functions. This is helpful for stack traces. #TBD
 
