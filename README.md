@@ -44,7 +44,32 @@ First you will get a general overview about how to "style" the code followed by 
 * ES6
 * ES5
 * Performance
-***-->
+***
+
+
+
+
+
+1. [Encoding](#encoding)
+2. [Line Length](#line-length)
+3. [Indentation and Whitespaces](#indentation-and-whitespaces)
+4. [Commas](#commas)
+5. [Semicolons](#semicolons)
+6. [Comments](#comments)
+7. [Variable definition](#variable-definition)
+8. [Primitive Literals](#primitive-literals)
+9. [Operator Spacing and Blocks](#operator-spacing-and-blocks)
+10. [Object Literals](#object-literals)
+11. [Objects](#objects)
+12. [Arrays](#arrays)
+13. [Strings](#strings)
+14. [Properties](#properties)
+15. [Type Casting and Coercion](#type-casting-and-coercion)
+16. [Accessability and Aria](#accessability-and-aria)
+
+
+
+-->
 
 
 # General
@@ -189,6 +214,7 @@ var obj = {
 
 return obj;
 ```
+
 * Do not pad your blocks with blank lines.
 
 ```javascript
@@ -226,9 +252,9 @@ if (baz) {
 
 ## Comments
 
-Every function should have a comment in JsDoc style format!
+* Every function should have a comment in JsDoc style format!
 
-Complex code parts should also be commented as inline comment. (see 2. [Line Length](#line-length))
+* Complex code parts should also be commented as inline comment. (see 2. [Line Length](#line-length))
 
 
 ```javascript
@@ -247,7 +273,7 @@ function doCrazyStuff(name, value) {
 }
 ```
 
-Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are FIXME -- need to figure this out or TODO -- need to implement.
+* Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are FIXME -- need to figure this out or TODO -- need to implement.
 
 
 ---
@@ -296,7 +322,7 @@ var hero = {
 };
 ```
 
-Add semicolons after each statement!
+* Add semicolons after each statement!
 
 
 ```javascript
@@ -355,7 +381,52 @@ function() {
 }
 ```
 
+* Use camelCase when naming variables, objects, functions, and instances. Start lowercase!
+
+
+* Constructor and class names always start uppercase (PascalCase).
+
+```javascript
+var MyKlass = function() {};
+```
+
+* Constants will always be uppercase.
+
+```javascript
+// bad
+var pi = 3.141592654;
+
+// good
+var PI = 3.141592654;
+const PI = 3.141592654; // ES6
+```
+
 * Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
+
+* Use `$` for jQuery variables.
+
+```javascript
+$myElement = $('.myElement');
+```
+
+* Use `_` for naming private variable.
+
+```javascript
+_superSecretNumber = 42;
+```
+
+* Use `_$` for private jQuery variables.
+
+```javascript
+_$superSecretElement = $('.topSecret');
+```
+
+* No numeric beginning of variable names (JS Standard).
+
+```javascript
+// bad
+var 23bad = 23;
+```
 
 * In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
 
@@ -376,6 +447,23 @@ var mouseMoveHandler = function(e) {...}
 ```
 
 * Use readable synonyms in place of reserved words.
+
+
+#### Variable definition
+
+* Name your functions. This is helpful for stack traces.
+
+```javascript
+// bad
+var log = function(msg) {
+    console.log(msg);
+};
+
+// good
+var log = function log(msg) {
+    console.log(msg);
+};
+```
 
 
 
@@ -408,7 +496,9 @@ Use `===` and `!==` over `==` and `!=`.
 
 ---
 
-## Blocks
+## Operator Spacing and Blocks
+
+* Operators with two operands must be preceded and followed by a single space to make the expression clear. Operators include assignments and logical operators.
 
 * Use braces with all multi-line blocks.
 
@@ -446,8 +536,7 @@ if (test) {
 ## Type Casting and Coercion
 
 
-Perform type coercion at the beginning of the statement.
-Strings:
+* Perform type coercion at the beginning of the statement. Strings:
 
 ```javascript
 //  => this.reviewScore = 9;
@@ -466,7 +555,7 @@ var totalScore = this.reviewScore + ' total score'; 
 ```
 
 
-Use parseInt for Numbers and always with a radix for type casting. 
+* Use parseInt for Numbers and always with a radix for type casting. 
 
 ```javascript
 var inputValue = '4';
@@ -510,7 +599,7 @@ var hasAge = !!age;
 
 ## Strings
 
-Note: If overused, long strings with concatenation could impact performance. jsPerf & Discussion.
+* Note: If overused, long strings with concatenation could impact performance.
 
 ```javascript
 // bad
@@ -536,7 +625,7 @@ var errorMessage = 'This is a super long error that was thrown because ' +
 ```
 
 
-When programmatically building up a string, use Array#join instead of string concatenation. 
+* When programmatically building up a string, use Array#join instead of string concatenation. 
 
 ```javascript
 var items;
@@ -622,7 +711,7 @@ var superman = {
 
 ## Arrays
 
-Use the literal syntax for array creation.
+* Use the literal syntax for array creation.
 
 ```javascript
 // bad
@@ -630,7 +719,12 @@ var items = new Array();
 
 // good
 var items = [];
+
+// good
+var items = [1, 2, ''];
 ```
+
+
 
 ---
 
@@ -638,7 +732,7 @@ var items = [];
 ## Properties
 
 
-Use dot notation when accessing properties.
+* Use dot notation when accessing properties.
 
 ```javascript
 var luke = {
@@ -654,8 +748,8 @@ var isJedi = luke.jedi;
 ```
 
 
+* Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
 
-Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
 
 ```javascript
 // bad
@@ -675,8 +769,7 @@ var goSportsTeam = true;
 var dragonball = 'z';
 ```
 
-
-Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
 ```javascript
 // bad
@@ -737,125 +830,9 @@ let i;
 let length;
 ```
 
+#### Variable definition
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-***
-
-***
-
-***
-
-
-
-
-
-
-## Index
-1. [Encoding](#encoding)
-2. [Line Length](#line-length)
-3. [Indentation and Whitespaces](#indentation-and-whitespaces)
-4. [Commas](#commas)
-5. [Semicolons](#semicolons)
-6. [Comments](#comments)
-7. [Variable definition](#variable-definition)
-8. [Primitive Literals](#primitive-literals)
-9. [Operator Spacing and Blocks](#operator-spacing-and-blocks)
-10. [Object Literals](#object-literals)
-11. [Objects](#objects)
-12. [Arrays](#arrays)
-13. [Strings](#strings)
-14. [Properties](#properties)
-15. [Type Casting and Coercion](#type-casting-and-coercion)
-16. [Accessability and Aria](#accessability-and-aria)
-
-
-***
-
-
-
-## Variable definition
-
-
-
-
-Name your functions. This is helpful for stack traces. #TBD
-
-```javascript
-// bad
-var log = function(msg) {
-    console.log(msg);
-};
-
-// good
-var log = function log(msg) {
-    console.log(msg);
-};
-```
-
-If your file exports a single class, your filename should be exactly the name of the class.
+* If your file exports a single class, your filename should be exactly the name of the class.
 
 ```javascript
 // file contents
@@ -876,93 +853,11 @@ var CheckBox = require('./CheckBox');
 ```
 
 
-No numeric beginning of variable names (JS Standard)
 
- ```javascript
-$ = jQuery object
-_ = private variables
-_$ = private jQuery object
-```
-
-MyKlass = Constructor and class names should start uppercase (PascalCase)
-
-Use camelCase when naming objects, functions, and instances.
-Variable names always camel-cased and should start lowercase
-
-FOOBAR = constant
+***
 
 
-Use a leading underscore _ when naming private properties.
-
-
-
-
-
-Should be discussed:
-
-Variables start with type definition prefix like:
- ```javascript
-sFoo = “bar”; (String)
-aBar = [1, 2, 3]; (Array)
-etc.
-```
-
-self = this not that! ????
-When saving a reference to this use _this ?????
-
-
----
-
-
-## Operator Spacing and Blocks
-
-Operators with two operands must be preceded and followed by a single space to make
-the expression clear. Operators include assignments and logical operators.
-
-
-Use braces with all multi-line blocks.
-
-```javascript
-// bad
-if(name=='') {
-    // ...stuff...
-}
-
-// bad
-if(name==''){return}
-
-
-// good
-if (name === ’’) {
-    retrun;
-}
-```
-
-If you're using multi-line blocks with if and else, put else on the same line as your if block's closing brace.
-
-```javascript
-// bad
-if (test) {
-    thing1();
-    thing2();
-}
-else {
-    thing3();
-}
-
-// good
-if (test) {
-    thing1();
-    thing2();
-} else {
-    thing3();
-}
-```
-
-
----
-
-
+# ES5
 
 ## Object Literals
 
@@ -991,22 +886,8 @@ var myNumbers = [1, 2, 3];
 ```
 
 
----
-
-
-
-
-
-
-
-
----
-
-## Accessability and Aria
-
-...
-
----
+***
+***
 
 
 ## Resources
@@ -1087,34 +968,13 @@ var myNumbers = [1, 2, 3];
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+***
 
 
 #TBD:
 
-ES6 Guidelines???
 
-
-Resources Block???
-
-
-- return this for chaining
-- overwriting prototype object
-- naming functions
-- getter/setter
-
-
-Performance related guidelines: ???
+Performance related guidelines.
 
 
 Use shortcuts????
