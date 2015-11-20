@@ -466,6 +466,23 @@ var log = function log(msg) {
 ```
 
 
+* Never declare a function in a non-function block (if, for, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+
+
+
+* Never use the Function constructor to create a new function.
+
+> Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
+
+```javascript
+// bad
+var add = new Function('a', 'b', 'return a + b');
+
+// still bad
+var subtract = Function('a', 'b', 'return a - b');
+```
+
+
 
 #### Primitive Literals
 
@@ -724,6 +741,17 @@ var items = [];
 var items = [1, 2, ''];
 ```
 
+* Use Array#push instead of direct assignment to add items to an array.
+
+```javascript
+var someStack = [];
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+```
 
 
 ---
@@ -793,6 +821,7 @@ var i;
 ```
 
 
+
 ---
 
 <!--## Accessability (ARIA)-->
@@ -852,6 +881,222 @@ var CheckBox = require('./check_box');
 var CheckBox = require('./CheckBox');
 ```
 
+---
+
+
+## References
+
+* Use `const` for all of your references; avoid using `var`.
+
+```javascript
+// bad
+var a = 1;
+var b = 2;
+
+// good
+const a = 1;
+const b = 2;
+```
+
+* If you must reassign references, use `let` instead of `var`.
+
+```javascript
+// bad
+var count = 1;
+if (true) {
+	count += 1;
+}
+
+// good, use the let.
+let count = 1;
+if (true) {
+	count += 1;
+}
+```
+
+* Use property value shorthand.
+
+> Why? It is shorter to write and descriptive.
+
+```javascript
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+	lukeSkywalker: lukeSkywalker,
+};
+
+// good
+const obj = {
+	lukeSkywalker,
+};
+```
+
+* Group your shorthand properties at the beginning of your object declaration.
+
+> Why? It's easier to tell which properties are using the shorthand.
+
+```javascript
+const anakinSkywalker = 'Anakin Skywalker';
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+	episodeOne: 1,
+	twoJediWalkIntoACantina: 2,
+	lukeSkywalker,
+	episodeThree: 3,
+	mayTheFourth: 4,
+	anakinSkywalker,
+};
+
+// good
+const obj = {
+	lukeSkywalker,
+	anakinSkywalker,
+	episodeOne: 1,
+	twoJediWalkIntoACantina: 2,
+	episodeThree: 3,
+	mayTheFourth: 4,
+};
+```
+
+---
+
+## Destructuring
+
+* Use object destructuring when accessing and using multiple properties of an object.
+
+> Why? Destructuring saves you from creating temporary references for those properties.
+
+```javascript
+// bad
+function getFullName(user) {
+	const firstName = user.firstName;
+	const lastName = user.lastName;
+	
+	return `${firstName} ${lastName}`;
+}
+
+// good
+function getFullName(obj) {
+	const { firstName, lastName } = obj;
+	return `${firstName} ${lastName}`;
+}
+
+// best
+function getFullName({ firstName, lastName }) {
+	return `${firstName} ${lastName}`;
+}
+```
+
+* Use array destructuring.
+
+
+```javascript
+const arr = [1, 2, 3, 4];
+
+// bad
+const first = arr[0];
+const second = arr[1];
+
+// good
+const [first, second] = arr;
+```
+
+
+* Use object destructuring for multiple return values, not array destructuring.
+
+> Why? You can add new properties over time or change the order of things without breaking call sites.
+
+
+```javascript
+// bad
+function processInput(input) {
+	// then a miracle occurs
+	return [left, right, top, bottom];
+}
+
+// the caller needs to think about the order of return data
+const [left, __, top] = processInput(input);
+
+// good
+function processInput(input) {
+	// then a miracle occurs
+	return { left, right, top, bottom };
+}
+
+// the caller selects only the data they need
+const { left, right } = processInput(input);
+```
+
+---
+
+
+## Strings
+
+* When programmatically building up strings, use template strings instead of concatenation.
+
+> Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+
+```javascript
+// bad
+function sayHi(name) {
+	return 'How are you, ' + name + '?';
+}
+
+// bad
+function sayHi(name) {
+	return ['How are you, ', name, '?'].join();
+}
+
+// good
+function sayHi(name) {
+	return `How are you, ${name}?`;
+}
+```
+
+---
+
+## Functions
+
+* Use default parameter syntax rather than mutating function arguments.
+
+```javascript
+// bad
+function handleThings(opts) {
+	opts = opts || {};
+	// ...
+}
+
+// bad
+function handleThings(opts) {
+	if (opts === void 0) {
+		opts = {};
+	}
+	// ...
+}
+
+// good
+function handleThings(opts = {}) {
+	// ...
+}
+```
+
+
+* Always put default parameters last.
+
+```javascript
+// bad
+function handleThings(opts = {}, name) {
+	 // ...
+}
+
+// good
+function handleThings(name, opts = {}) {
+	// ...
+}
+```
 
 
 ***
