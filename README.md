@@ -1,10 +1,10 @@
 #JavaScript Coding Guidelines
 
-First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines. We also have a ES5 section and a short overview about how to write performance efficient Javascript.
+First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines.
 
-**<span style="color:red;">Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.</span>**
+<span style="color:red;">**Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.**</span>
 
-## General
+<!--## General
 
 * Encoding
 * Javascript Modus
@@ -44,7 +44,7 @@ First you will get a general overview about how to "style" the code followed by 
 * ES6
 * ES5
 * Performance
-***
+***-->
 
 
 # General
