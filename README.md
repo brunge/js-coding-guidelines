@@ -4,6 +4,30 @@ First you will get a general overview about how to "style" the code followed by 
 
 <span style="color:red;">**Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.**</span>
 
+
+## Overview
+
+#### General
+1. [Encoding](#encoding)
+2. [Javascript Modus](#javascript-modus)
+3. [Line Length](#line-length)
+4. [Indentation and Whitespaces](#indentation-and-whitespaces)
+5. [Comments](#comments)
+6. [Commas and Semicolons](#commas-and-semicolons)
+7. [Variables](#variables)
+8. [Comparison Operators and Equality](#comparison-operators-and-equality)
+9. [Operator Spacing and Blocks](#operator-spacing-and-blocks)
+10. [Type Casting and Coercion](#type-casting-and-coercion)
+11. [Strings](#strings)
+12. [Objects](#objects)
+13. [Arrays](#arrays)
+14. [Properties](#properties)
+
+#### ES6
+
+1. [Variables](#variables-es6)
+
+
 <!--## General
 
 * Encoding
@@ -279,7 +303,7 @@ function doCrazyStuff(name, value) {
 ---
 
 
-## Commas & Semicolons
+## Commas and Semicolons
 
 * Never use leading commas!
 * Also don't add additional trailing commas in objects and arrays!
@@ -507,7 +531,7 @@ var message = 'hello';
 
 ---
 
-## Comparison Operators & Equality
+## Comparison Operators and Equality
 
 Use `===` and `!==` over `==` and `!=`.
 
