@@ -1,13 +1,10 @@
-#JavaScript Coding Guidelines
+# JavaScript Coding Guidelines
 
-First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines.
-
-<span style="color:red;">**Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.**</span>
-
-
-## Overview
+## Index
 
 #### General
+[Introduction](#introduction)
+
 1. [Encoding](#encoding)
 2. [Javascript Modus](#javascript-modus)
 3. [Line Length](#line-length)
@@ -28,72 +25,13 @@ First you will get a general overview about how to "style" the code followed by 
 1. [Variables](#variables-es6)
 
 
-<!--## General
+## Introduction
 
-* Encoding
-* Javascript Modus
-* Line Length
-* Indentation & White-space
-* Comments
-* Commas & Semicolons
-* Primitive Literals
-* Accessability (ARIA)
+First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines.
 
-## ES6
-* Variable definition
-* Operator Spacing and Blocks
-* Object Literals
-* Objects
-* Arrays
-* Strings
-* Properties
-* Type Casting
+<span style="color:red;">**Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.**</span>
 
-## ES5
-* Variable definition
-* Operator Spacing and Blocks
-* Object Literals
-* Objects
-* Arrays
-* Strings
-* Properties
-* Type Casting
-
-## Performance Efficient Javascript
-* ???
-
-
-***
-* Allgmeines (inkl. Accessability?)
-* ES6
-* ES5
-* Performance
-***
-
-
-
-
-
-1. [Encoding](#encoding)
-2. [Line Length](#line-length)
-3. [Indentation and Whitespaces](#indentation-and-whitespaces)
-4. [Commas](#commas)
-5. [Semicolons](#semicolons)
-6. [Comments](#comments)
-7. [Variable definition](#variable-definition)
-8. [Primitive Literals](#primitive-literals)
-9. [Operator Spacing and Blocks](#operator-spacing-and-blocks)
-10. [Object Literals](#object-literals)
-11. [Objects](#objects)
-12. [Arrays](#arrays)
-13. [Strings](#strings)
-14. [Properties](#properties)
-15. [Type Casting and Coercion](#type-casting-and-coercion)
-16. [Accessability and Aria](#accessability-and-aria)
-
-
-
--->
+**This styleguide is obligatory!** If you are convinced that your project cannot be implemented without violating some of these rules, please contact us.
 
 
 # General
