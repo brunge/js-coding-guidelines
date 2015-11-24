@@ -30,18 +30,19 @@
 This styleguide provides an rules and best practices for writing clean, well structured and maintainable code.
 It has been created to improve cross-project cooperation and reduce the initial time spent on getting familiar with a new project.
 
-At first, you will get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
+You will get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
 
-**Note: For most of the general code examples we used the ES5 syntax to describe them. Keep in mind not to mix syntaxes if you write in ES6.**
+__Note: For most of the general code examples we used the ES5 syntax to describe them.
+Keep in mind not to mix syntaxes if you write in ES6.__
 
-**This styleguide is obligatory!** If you are convinced that your project cannot be implemented without violating some of these rules, please contact us.
+__This styleguide is obligatory!__ If you are convinced that your project cannot be implemented without violating some of these rules, [please contact us](#persons-in-charge).
 
 
 # General
 
 ## Encoding
 
-Always use UTF-8 encoding for .js files.
+* Always use UTF-8 encoding for javascript files.
 
 
 ---
@@ -49,7 +50,7 @@ Always use UTF-8 encoding for .js files.
 
 ## Javascript Modus
 
-ES5 and ES6 are triggered by writing:
+* ES5 and ES6 are triggered by writing `use strict`:
 
 ```javascript
 //bad + error
@@ -59,17 +60,14 @@ ES5 and ES6 are triggered by writing:
 'use strict';
 ```
 
-
 ---
 
 
 ## Line Length
 
-Each line should be **no longer than 80 characters**. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters/spaces).
+* Each line should be __no longer than 80 characters__. If a line goes longer than 80 characters, it should be wrapped after an operator (comma, plus, etc.). The following line should be indented two levels (eight characters/spaces).
 
-(See GitHub: no horizontal scrollbar)
-
-Strings longer than 80 characters should be written across multiple lines using string concatenation. (see 13. [Strings](#strings))
+* Strings longer than 80 characters should be written across multiple lines using string concatenation.
 
 
 ---
@@ -77,10 +75,11 @@ Strings longer than 80 characters should be written across multiple lines using 
 
 ## Indentation and Whitespaces
 
-* Always use **spaces** for indentation in Javascript.
-* Use **4 spaces per soft tab** (indentation level).
+* Always use __spaces__ for indentation in Javascript.
+* Use __4 spaces per indentation level__ (soft tab).
 * Place 1 space before the leading brace.
-* Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.
+* Place 1 space before the opening parenthesis in control statements (if, while etc.).
+* Place no space before the argument list in function calls and declarations.
 
 ```javascript
 // bad
@@ -1096,9 +1095,27 @@ var myNumbers = [1, 2, 3];
 ```
 
 
-***
-***
+---
 
+## Persons in charge
+__SASS / CSS:__
+
+- [Andy Gutsche (HL)](mailto: andy.gutsche@aperto.com)
+- [Marlene Schertler](mailto: marlene.schertler@aperto.com)
+
+__Markup / Accessibility:__
+
+- [Felix Berger](mailto: felix.berger@aperto.com)
+- [Wibke Jaeger](mailto: wibke.jaeger@aperto.com)
+
+__JavaScript:__
+
+- [Peter Dematte](mailto: peter.dematte@aperto.com)
+- [Bastian Runge](mailto: bastian.runge@aperto.com)
+
+
+
+***
 
 ## Resources
 
