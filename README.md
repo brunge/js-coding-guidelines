@@ -218,7 +218,7 @@ if (baz) {
 
 * Every function should have a comment in JsDoc style format!
 
-* Complex code parts should also be commented as inline comment. (see 2. [Line Length](#line-length))
+* Complex code parts should also be commented as inline comment. (Beware of [Line Length](#line-length).)
 
 
 ```javascript
@@ -245,8 +245,8 @@ function doCrazyStuff(name, value) {
 
 ## Commas and Semicolons
 
-* Never use leading commas!
-* Also don't add additional trailing commas in objects and arrays!
+* Never use leading commas.
+* Also don't add additional trailing commas in objects and arrays.
 
 ```javascript
 // bad
@@ -286,7 +286,7 @@ var hero = {
 };
 ```
 
-* Add semicolons after each statement!
+* Add semicolons after each statement.
 
 
 ```javascript
@@ -345,10 +345,9 @@ function() {
 }
 ```
 
-* Use camelCase when naming variables, objects, functions, and instances. Start lowercase!
+* Use camelCase when naming variables, objects, functions, and instances. (Starting lowercase.)
 
-
-* Constructor and class names always start uppercase (PascalCase).
+* Constructor and class names will be written in PascalCase.
 
 ```javascript
 var MyKlass = function() {};
