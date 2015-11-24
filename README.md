@@ -27,9 +27,12 @@
 
 ## Introduction
 
-First you will get a general overview about how to "style" the code followed by ES6 relevant guidelines.
+This styleguide provides an rules and best practices for writing clean, well structured and maintainable code.
+It has been created to improve cross-project cooperation and reduce the initial time spent on getting familiar with a new project.
 
-<span style="color:red;">**Note: For all the general code examples we used the ES5 syntax to describe the guidelines. Keep in mind not to mix syntaxes if you write in ES6.**</span>
+At first, you will get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
+
+**Note: For most of the general code examples we used the ES5 syntax to describe them. Keep in mind not to mix syntaxes if you write in ES6.**
 
 **This styleguide is obligatory!** If you are convinced that your project cannot be implemented without violating some of these rules, please contact us.
 
