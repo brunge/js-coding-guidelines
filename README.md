@@ -27,13 +27,12 @@
 
 ## Introduction
 
-This styleguide provides an rules and best practices for writing clean, well structured and maintainable code.
+This styleguide provides rules and best practices for writing clean, well structured and maintainable code.
 It has been created to improve cross-project cooperation and reduce the initial time spent on getting familiar with a new project.
 
-You will get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
+You get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
 
-__Note: For most of the general code examples we used the ES5 syntax to describe them.
-Keep in mind not to mix syntaxes if you write in ES6.__
+__Note: For most of the general code examples the ES5 syntax is used. Keep in mind not to mix syntaxes if you write in ES6.__
 
 __This styleguide is obligatory!__ If you are convinced that your project cannot be implemented without violating some of these rules, [please contact us](#persons-in-charge).
 
@@ -216,7 +215,7 @@ if (baz) {
 
 ## Comments
 
-* Every function should have a comment in JsDoc style format!
+* Every function should have a comment in JsDoc style format. (More Infos: [http://usejsdoc.org](http://usejsdoc.org))
 
 * Complex code parts should also be commented as inline comment. (Beware of [Line Length](#line-length).)
 
@@ -347,7 +346,7 @@ function() {
 
 * Use camelCase when naming variables, objects, functions, and instances. (Starting lowercase.)
 
-* Constructor and class names will be written in PascalCase.
+* Constructors and class names will be written in PascalCase.
 
 ```javascript
 var MyKlass = function() {};
@@ -372,7 +371,7 @@ const PI = 3.141592654; // ES6
 $myElement = $('.myElement');
 ```
 
-* Use `_` for naming private variable.
+* Use `_` for naming private variables.
 
 ```javascript
 _superSecretNumber = 42;
@@ -384,7 +383,9 @@ _superSecretNumber = 42;
 _$superSecretElement = $('.topSecret');
 ```
 
-* No numeric beginning of variable names (JS Standard).
+* No numeric beginning of variable names.
+
+> It's javascript standard and will result in an syntax error.
 
 ```javascript
 // bad
@@ -394,7 +395,7 @@ var 23bad = 23;
 * In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
 
 ```javascript
-var foo = ‘’,
+var foo = '',
     bar = [],
     fooBar = {};
 ```
@@ -472,7 +473,7 @@ var message = 'hello';
 
 ## Comparison Operators and Equality
 
-Use `===` and `!==` over `==` and `!=`.
+* Use `===` and `!==` over `==` and `!=`.
 
 ---
 
@@ -596,7 +597,7 @@ var errorMessage = [
     'This is a super long error that was thrown because ',
     'of Batman. When you stop to think about how Batman had anything to do ',
     'with this, you would get nowhere fast.'
-].join(‘’);
+].join('');
 
 // good
 var errorMessage = 'This is a super long error that was thrown because ' +
@@ -799,7 +800,7 @@ var i;
 
 * Group all your consts and then group all your lets.
 
-Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+> Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
 ```javascript
 // bad
@@ -1061,13 +1062,32 @@ function handleThings(name, opts = {}) {
 }
 ```
 
+---
 
-***
+## Persons in charge
+__SASS / CSS:__
+
+- [Andy Gutsche (HL)](mailto: andy.gutsche@aperto.com)
+- [Marlene Schertler](mailto: marlene.schertler@aperto.com)
+
+__Markup / Accessibility:__
+
+- [Felix Berger](mailto: felix.berger@aperto.com)
+- [Wibke Jaeger](mailto: wibke.jaeger@aperto.com)
+
+__JavaScript:__
+
+- [Peter Dematte](mailto: peter.dematte@aperto.com)
+- [Bastian Runge](mailto: bastian.runge@aperto.com)
 
 
-# ES5
 
-## Object Literals
+
+
+
+## OPEN (from old es5 part):
+
+### Object Literals
 
 Object literals should have the following format:
 *	The opening brace should be on the same line as the containing statement.
@@ -1096,21 +1116,14 @@ var myNumbers = [1, 2, 3];
 
 ---
 
-## Persons in charge
-__SASS / CSS:__
 
-- [Andy Gutsche (HL)](mailto: andy.gutsche@aperto.com)
-- [Marlene Schertler](mailto: marlene.schertler@aperto.com)
 
-__Markup / Accessibility:__
 
-- [Felix Berger](mailto: felix.berger@aperto.com)
-- [Wibke Jaeger](mailto: wibke.jaeger@aperto.com)
 
-__JavaScript:__
 
-- [Peter Dematte](mailto: peter.dematte@aperto.com)
-- [Bastian Runge](mailto: bastian.runge@aperto.com)
+
+
+
 
 
 
