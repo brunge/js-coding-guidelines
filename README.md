@@ -841,7 +841,7 @@ var isJedi = luke.jedi;
 
 
 ___The following section describes only ES6 relevant coding guidelines.___ <br>
-___See the [section](#introduction) above for all general guidelines for writing js code.___
+___See the [general section](#general) above for all general guidelines for writing js code.___
 
 
 ## ES6 Variables
