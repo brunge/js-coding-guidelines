@@ -862,9 +862,9 @@ let len;
 // good
 const goSportsTeam = true;
 const items = getItems();
-let dragonball;
-let i;
-let length;
+let dragonball = {};
+let i = 1;
+let length = 42;
 ```
 
 #### Variable definition
