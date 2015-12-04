@@ -22,7 +22,15 @@
 
 #### ES6
 
-1. [Variables](#variables-es6)
+1. [ES6 Variables](#es6-variables)
+2. [ES6 References](#es6-references)
+3. [ES6 Destructuring](#es6-destructuring)
+4. [ES6 Strings](#es6-strings)
+5. [ES6 Functions](#es6-functions)
+6. [ES6 Arrow Functions](#es6-arrow-functions)
+7. [ES6 Constructors](#es6-constructors)
+8. [ES6 Modules](#es6-modules)
+9. [ES6 Naming Conventions](#es6-naming-conventions)
 
 
 ## Introduction
@@ -832,7 +840,7 @@ var isJedi = luke.jedi;
 # ES6
 
 
-## Variables
+## ES6 Variables
 
 * Group all your consts and then group all your lets.
 
@@ -884,7 +892,7 @@ var CheckBox = require('./CheckBox');
 ---
 
 
-## References
+## ES6 References
 
 * Use `const` for all of your references; avoid using `var`.
 
@@ -968,7 +976,7 @@ const obj = {
 
 ---
 
-## Destructuring
+## ES6 Destructuring
 
 * Use object destructuring when accessing and using multiple properties of an object.
 
@@ -1038,7 +1046,7 @@ const { left, right } = processInput(input);
 ---
 
 
-## Strings
+## ES6 Strings
 
 * When programmatically building up strings, use template strings instead of concatenation.
 
@@ -1073,7 +1081,7 @@ var longString = `Then took the other, as just as fair,
 
 ---
 
-## Functions
+## ES6 Functions
 
 * Use default parameter syntax rather than mutating function arguments.
 
@@ -1115,7 +1123,7 @@ function handleThings(name, opts = {}) {
 
 ---
 
-## Arrow Functions
+## ES6 Arrow Functions
 
 * When you must use function expressions (as when passing an anonymous function), use arrow function notation.
 
@@ -1170,7 +1178,7 @@ eslint rules: arrow-parens.
 
 ---
 
-## Constructors
+## ES6 Constructors
 
 * Always use class. Avoid manipulating prototype directly.
 
@@ -1261,7 +1269,7 @@ luke.jump()
 
 ---
 
-## Modules
+## ES6 Modules
 
 * Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
 
@@ -1310,7 +1318,7 @@ export default batman;
 
 ---
 
-## Naming Convetions
+## ES6 Naming Convetions
 
 ___See also general section!___
 
