@@ -344,6 +344,50 @@ function() {
 }
 ```
 
+* Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
+
+
+```javascript
+// bad
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
+
+// bad
+// (compare to above, and try to spot the mistake)
+var items = getItems(),
+    goSportsTeam = true;
+    dragonball = 'z';
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball = 'z';
+```
+
+* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+```javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i;
+var items = getItems();
+var dragonball;
+var goSportsTeam = true;
+var len;
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball;
+var length;
+var i;
+```
+
 * Use camelCase when naming variables, objects, functions, and instances. (Starting lowercase.)
 
 * Constructors and class names will be written in PascalCase.
@@ -359,8 +403,10 @@ var MyKlass = function() {};
 var pi = 3.141592654;
 
 // good
-var PI = 3.141592654;
-const PI = 3.141592654; // ES6
+var PI = 3.141592654; // shows that the variable shouldn't be changed
+
+// good in ES6
+const pi = 3.141592654;
 ```
 
 * Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
@@ -395,9 +441,9 @@ var 23bad = 23;
 * In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
 
 ```javascript
-var foo = '',
-    bar = [],
-    fooBar = {};
+var foo = '';
+var bar = [];
+var fooBar = {};
 ```
 
 * Avoid single letter names. Be descriptive with your naming and write meaningful variable names.
@@ -545,9 +591,6 @@ var inputValue = '4';
 var val = new Number(inputValue);
 
 // bad
-var val = +inputValue;
-
-// bad
 var val = inputValue >> 0;
 
 // bad
@@ -558,6 +601,9 @@ var val = Number(inputValue);
 
 // good
 var val = parseInt(inputValue, 10);
+
+// good - ...
+var val = +inputValue;
 ```
 
 
@@ -671,20 +717,50 @@ var item = {};
 ```javascript
 // bad
 var superman = {
-    default: {
-        clark: 'kent'
-    },
-    private: true
-};
+	    default: {
+	        clark: 'kent'
+	    },
+	    private: true
+	};
 
 // good
 var superman = {
-    defaults: {
-        clark: 'kent'
-    },
-    hidden: true
-};
+	    defaults: {
+	        clark: 'kent'
+	    },
+	    hidden: true
+	};
 ```
+
+#### Object Literals
+
+Object literals should have the following format:
+
+*	The opening brace should be on the same line as the containing statement.
+*	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
+*	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
+If the value is a function, it should wrap under the property name (and should have a blank line both before and after the function.)
+*	Additional empty lines may be inserted to group related properties or otherwise
+improve readability.
+*	The closing brace should be on a separate line.
+
+```javascript
+// Good
+var object = {
+        key1: value1,
+        key2: value2,
+        func: function() {
+            // do something
+        },
+        key3: value3
+	};
+
+
+var myNumbers = [1, 2, 3];
+```
+
+
+---
 
 
 ---
@@ -738,52 +814,6 @@ var isJedi = luke['jedi'];
 // good
 var isJedi = luke.jedi;
 ```
-
-
-* Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
-
-
-```javascript
-// bad
-var items = getItems(),
-    goSportsTeam = true,
-    dragonball = 'z';
-
-// bad
-// (compare to above, and try to spot the mistake)
-var items = getItems(),
-    goSportsTeam = true;
-    dragonball = 'z';
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball = 'z';
-```
-
-* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-```javascript
-// bad
-var i, len, dragonball,
-    items = getItems(),
-    goSportsTeam = true;
-
-// bad
-var i;
-var items = getItems();
-var dragonball;
-var goSportsTeam = true;
-var len;
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball;
-var length;
-var i;
-```
-
 
 
 ---
@@ -1020,6 +1050,16 @@ function sayHi(name) {
 }
 ```
 
+* Use backticks to write multi-line strings.
+
+```javascript
+var longString = `Then took the other, as just as fair,
+    And having perhaps the better claim
+    Because it was grassy and wanted wear,
+    Though as for that the passing there
+    Had worn them really about the same ...`
+```
+
 ---
 
 ## Functions
@@ -1064,6 +1104,230 @@ function handleThings(name, opts = {}) {
 
 ---
 
+## Arrow Functions
+
+* When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+
+> Why? It creates a version of the function that executes in the context of this, which is usually what you want, and is a more concise syntax.
+
+> Why not? If you have a fairly complicated function, you might move that logic out into its own function declaration.
+
+```javascript
+// bad
+[1, 2, 3].map(function (x) {
+	const y = x + 1;
+	return x * y;
+});
+
+// good
+[1, 2, 3].map((x) => {
+	const y = x + 1;
+	return x * y;
+});
+```
+
+* In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+
+> Why? It shows clearly where the function starts and ends.
+ 
+```javascript
+// bad
+[1, 2, 3].map(number => 'As time went by, the string containing the ' +
+	`${number} became much longer. So we needed to break it over multiple ` +
+	'lines.'
+);
+
+// good
+[1, 2, 3].map(number => (
+	`As time went by, the string containing the ${number} became much ` +
+	'longer. So we needed to break it over multiple lines.'
+));
+```
+
+If your function only takes a single argument, feel free to omit the parentheses.
+
+> Why? Less visual clutter.
+eslint rules: arrow-parens.
+
+```javascript
+// good
+[1, 2, 3].map(x => x * x);
+
+// good
+[1, 2, 3].reduce((y, x) => x + y);
+```
+
+---
+
+## Constructors
+
+* Always use class. Avoid manipulating prototype directly.
+
+> Why? class syntax is more concise and easier to reason about.
+  
+```javascript
+// bad
+function Queue(contents = []) {
+	this._queue = [...contents];
+}
+Queue.prototype.pop = function () {
+	const value = this._queue[0];
+	this._queue.splice(0, 1);
+	return value;
+}
+
+// good
+class Queue {
+	constructor(contents = []) {
+  		this._queue = [...contents];
+	}
+	pop() {
+  		const value = this._queue[0];
+  		this._queue.splice(0, 1);
+  		return value;
+	}
+}
+```
+
+* Use extends for inheritance.
+
+> Why? It is a built-in way to inherit prototype functionality without breaking instanceof.
+ 
+```javascript
+// bad
+	const inherits = require('inherits');
+	function PeekableQueue(contents) {
+	Queue.apply(this, contents);
+}
+inherits(PeekableQueue, Queue);
+PeekableQueue.prototype.peek = function () {
+	return this._queue[0];
+}
+
+// good
+class PeekableQueue extends Queue {
+	peek() {
+  		return this._queue[0];
+	}
+}
+```
+
+* Methods can return this to help with method chaining.
+
+```javascript
+// bad
+Jedi.prototype.jump = function () {
+	this.jumping = true;
+ 	return true;
+};
+
+Jedi.prototype.setHeight = function (height) {
+	this.height = height;
+};
+
+const luke = new Jedi();
+luke.jump(); // => true
+luke.setHeight(20); // => undefined
+
+// good
+class Jedi {
+	jump() {
+		this.jumping = true;
+		return this;
+	}
+
+	setHeight(height) {
+		this.height = height;
+		return this;
+	}
+}
+
+const luke = new Jedi();
+
+luke.jump()
+	.setHeight(20);
+```
+
+---
+
+## Modules
+
+* Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
+
+> Why? Modules are the future, let's start using the future now.
+
+```javascript
+// bad
+const MyModule = require('./MyModule');
+module.exports = MyModule.batman;
+
+// ok
+import MyModule from './MyModule';
+export default MyModule.batman;
+
+// best
+import { batman } from './MyModule';
+export default batman;
+```
+
+* Do not use wildcard imports.
+
+> Why? This makes sure you have a single default export.
+
+```javascript
+// bad
+import * as MyModule from './MyModule';
+
+// good
+import MyModule from './MyModule';
+```
+
+* And do not export directly from an import.
+
+> Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+
+```javascript
+// bad
+// filename batman.js
+export { batman as default } from './MyModule';
+
+// good
+// filename batman.js
+import { batman } from './MyModule';
+export default batman;
+```
+
+---
+
+## Naming Convetions
+
+___See also general section!___
+
+* Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+
+```javascript
+function makeStyleGuide() {
+}
+
+export default makeStyleGuide;
+```
+
+* Use PascalCase when you export a singleton / function library / bare object.
+
+```javascript
+const MyModule = {
+	batman: {
+	}
+};
+
+
+export default MyModule;
+```
+
+
+
+---
+
 ## Persons in charge
 __SASS / CSS:__
 
@@ -1079,51 +1343,6 @@ __JavaScript:__
 
 - [Peter Dematte](mailto: peter.dematte@aperto.com)
 - [Bastian Runge](mailto: bastian.runge@aperto.com)
-
-
-
-
-
-
-## OPEN (from old es5 part):
-
-### Object Literals
-
-Object literals should have the following format:
-*	The opening brace should be on the same line as the containing statement.
-*	Each property-value pair should be indented one level with the first property appearing on the next line after the opening brace.
-*	Each property-value pair should have an unquoted property name, followed by a colon (no space preceding it), followed by the value.
-If the value is a function, it should wrap under the property name (and should have a blank line both before and after the function.)
-*	Additional empty lines may be inserted to group related properties or otherwise
-improve readability.
-*	The closing brace should be on a separate line.
-
-```javascript
-// Good
-var object = {
-    key1: value1,
-    key2: value2,
-    func: function() {
-        // do something
-    },
-    key3: value3
-};
-
-
-var myNumbers = [1, 2, 3];
-```
-
-
----
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1201,41 +1420,3 @@ var myNumbers = [1, 2, 3];
 
   - [JavaScript Jabber](http://devchat.tv/js-jabber/)
 
-
-
-
-
-
-
-***
-
-
-#TBD:
-
-
-Performance related guidelines.
-
-
-Use shortcuts????
-
-```javascript
-// bad
-if (name !== '') {
-    // ...stuff...
-}
-
-// good
-if (name) {
-    // ...stuff...
-}
-
-// bad
-if (collection.length > 0) {
-    // ...stuff...
-}
-
-// good
-if (collection.length) {
-    // ...stuff...
-}
-```
