@@ -3,7 +3,7 @@
 ## Index
 
 #### General
-- ##### [Introduction](#introduction)
+[Introduction](#introduction)
 
 1. [Encoding](#encoding)
 2. [Javascript Modus](#javascript-modus)
@@ -20,7 +20,7 @@
 13. [Arrays](#arrays)
 14. [Properties](#properties)
 
-- ##### [ES6](#es6)
+[ES6](#es6)
 
 1. [ES6 Variables](#es6-variables)
 2. [ES6 References](#es6-references)
