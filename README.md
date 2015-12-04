@@ -840,6 +840,10 @@ var isJedi = luke.jedi;
 # ES6
 
 
+___The following section describes only ES6 relevant coding guidelines.___ <br>
+___See the [section](#introduction) above for all general guidelines for writing js code.___
+
+
 ## ES6 Variables
 
 * Group all your consts and then group all your lets.
