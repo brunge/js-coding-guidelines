@@ -396,7 +396,7 @@ var i;
 var MyKlass = function() {};
 ```
 
-* Constants will always be uppercase.
+* Constants will always be uppercase. Use `_` to separate words in constants.
 
 ```javascript
 // bad
@@ -404,6 +404,9 @@ var pi = 3.141592654;
 
 // good
 var PI = 3.141592654; // shows that the variable shouldn't be changed
+
+// good
+var PI_PA_PO = 3.141592654;
 
 // good in ES6
 const pi = 3.141592654;
@@ -444,6 +447,8 @@ var 23bad = 23;
 var foo = '';
 var bar = [];
 var fooBar = {};
+var $fooBar = {}; // jQuery
+var $fooBar = $(); // empty jQuery Object 
 ```
 
 * Avoid single letter names. Be descriptive with your naming and write meaningful variable names.
@@ -602,9 +607,13 @@ var val = Number(inputValue);
 // good
 var val = parseInt(inputValue, 10);
 
-// good - ...
+// good - faster lookup as parseInt is part of window 
 var val = +inputValue;
 ```
+
+* Don't use bit operators!
+
+> Why? Too many internal 64 bit to 32 bit (and reverse) convertions.
 
 
 Booleans:
@@ -905,6 +914,11 @@ if (true) {
 let count = 1;
 if (true) {
 	count += 1;
+}
+
+// good
+for (let a = 0, b = 10; a < b; a++) {
+	// let makes 'a' and 'b' only exist inside the for loop
 }
 ```
 
