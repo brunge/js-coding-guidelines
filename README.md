@@ -772,9 +772,6 @@ var myNumbers = [1, 2, 3];
 ---
 
 
----
-
-
 ## Arrays
 
 * Use the literal syntax for array creation.
