@@ -1318,7 +1318,7 @@ export default batman;
 
 ---
 
-## ES6 Naming Convetions
+## ES6 Naming Conventions
 
 ___See also general section!___
 
