@@ -38,7 +38,7 @@
 This styleguide provides rules and best practices for writing clean, well structured and maintainable code.
 It has been created to improve cross-project cooperation and reduce the initial time spent on getting familiar with a new project.
 
-You get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
+You will get a general overview about how to "style" the code followed by some ES6 relevant guidelines.
 
 __Note: For most of the general code examples the ES5 syntax is used. Keep in mind not to mix syntaxes if you write in ES6.__
 
