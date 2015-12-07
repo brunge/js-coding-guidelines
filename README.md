@@ -316,6 +316,90 @@ var hero = {
 
 ## Variables
 
+#### Primitive Literals
+
+Primitives are:
+
+* string
+* number
+* boolean
+* null
+* undefined
+
+
+Strings should be defined in single quotes.
+
+```javascript
+//bad
+var message = "hello";
+
+//good
+var message = 'hello';
+```
+
+
+* Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
+
+
+```javascript
+// bad
+var items = getItems(),
+    goSportsTeam = true,
+    dragonball = 'z';
+
+// bad
+// (compare to above, and try to spot the mistake)
+var items = getItems(),
+    goSportsTeam = true;
+    dragonball = 'z';
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball = 'z';
+```
+
+* In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
+
+```javascript
+var foo = '';
+var bar = [];
+var fooBar = {};
+var $fooBar = {}; // jQuery
+var $fooBar = $(); // empty jQuery Object 
+```
+
+* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+```javascript
+// bad
+var i, len, dragonball,
+    items = getItems(),
+    goSportsTeam = true;
+
+// bad
+var i;
+var items = getItems();
+var dragonball;
+var goSportsTeam = true;
+var len;
+
+// good
+var items = getItems();
+var goSportsTeam = true;
+var dragonball;
+var length;
+var i;
+```
+
+* Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
+
+* Use [camelCase](https://en.wikipedia.org/wiki/CamelCase) when naming variables, objects, functions, and instances. Start lowercase.
+
+```javascript
+var fooBar = '';
+```
+
 * Always define variables on top of a scope.
 
 ```javascript
@@ -352,59 +436,13 @@ function() {
 }
 ```
 
-* Use one var declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a ; for a , or introducing punctuation-only diffs.
-
-
-```javascript
-// bad
-var items = getItems(),
-    goSportsTeam = true,
-    dragonball = 'z';
-
-// bad
-// (compare to above, and try to spot the mistake)
-var items = getItems(),
-    goSportsTeam = true;
-    dragonball = 'z';
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball = 'z';
-```
-
-* Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-```javascript
-// bad
-var i, len, dragonball,
-    items = getItems(),
-    goSportsTeam = true;
-
-// bad
-var i;
-var items = getItems();
-var dragonball;
-var goSportsTeam = true;
-var len;
-
-// good
-var items = getItems();
-var goSportsTeam = true;
-var dragonball;
-var length;
-var i;
-```
-
-* Use camelCase when naming variables, objects, functions, and instances. (Starting lowercase.)
-
-* Constructors and class names will be written in PascalCase.
+* Constructors and class names will be written in PascalCase. Start Uppercase.
 
 ```javascript
 var MyKlass = function() {};
 ```
 
-* Constants will always be uppercase. Use `_` to separate words in constants.
+* ES5 Constants will always be uppercase. Use `_` to separate words in constants. If you write ES6 and are using the `const` definition you can write in camelCase.
 
 ```javascript
 // bad
@@ -419,8 +457,6 @@ var PI_PA_PO = 3.141592654;
 // good in ES6
 const pi = 3.141592654;
 ```
-
-* Always use `const`, `let`, `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace.
 
 * Use `$` for jQuery variables.
 
@@ -447,16 +483,6 @@ _$superSecretElement = $('.topSecret');
 ```javascript
 // bad
 var 23bad = 23;
-```
-
-* In a variable definition block, the type of a variable should always be predefined, even if its value is empty. This shows the type of a variable and reserves the correct memory space.
-
-```javascript
-var foo = '';
-var bar = [];
-var fooBar = {};
-var $fooBar = {}; // jQuery
-var $fooBar = $(); // empty jQuery Object 
 ```
 
 * Avoid single letter names. Be descriptive with your naming and write meaningful variable names.
@@ -507,26 +533,6 @@ var subtract = Function('a', 'b', 'return a - b');
 
 
 
-#### Primitive Literals
-
-Primitives are:
-
-* string
-* number
-* boolean
-* null
-* undefined
-
-
-Strings should be defined in single quotes.
-
-```javascript
-//bad
-var message = "hello";
-
-//good
-var message = 'hello';
-```
 
 ---
 
@@ -624,7 +630,7 @@ var val = +inputValue;
 > Why? Too many internal 64 bit to 32 bit (and reverse) convertions.
 
 
-Booleans:
+* Use `Boolean()` or `!!` for boolean convertion.
 
 ```javascript
 var age = 0;
